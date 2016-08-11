@@ -1,0 +1,940 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ios,object-c," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="浮生若梦" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Objective-C编码规范，内容来自苹果、谷歌的文档翻译，自己的编码经验和对其它资料的总结。
+转自https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese  
+##概要
+Objective-C是一门面向对象的动态编程语言，主要用于编写iOS和Mac应用程序。关于Objective-C的编码规范，苹果和谷歌都已经有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C Coding Guidelines In Chinese">
+<meta property="og:url" content="http://yoursite.com/2015/05/13/2015-05-13-objective-c-coding-guidelines/index.html">
+<meta property="og:site_name" content="浮生若梦">
+<meta property="og:description" content="Objective-C编码规范，内容来自苹果、谷歌的文档翻译，自己的编码经验和对其它资料的总结。
+转自https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese  
+##概要
+Objective-C是一门面向对象的动态编程语言，主要用于编写iOS和Mac应用程序。关于Objective-C的编码规范，苹果和谷歌都已经有">
+<meta property="og:image" content="https://raw.github.com/onevcat/VVDocumenter-Xcode/master/ScreenShot.gif">
+<meta property="og:updated_time" content="2016-07-11T08:49:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C Coding Guidelines In Chinese">
+<meta name="twitter:description" content="Objective-C编码规范，内容来自苹果、谷歌的文档翻译，自己的编码经验和对其它资料的总结。
+转自https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese  
+##概要
+Objective-C是一门面向对象的动态编程语言，主要用于编写iOS和Mac应用程序。关于Objective-C的编码规范，苹果和谷歌都已经有">
+<meta name="twitter:image" content="https://raw.github.com/onevcat/VVDocumenter-Xcode/master/ScreenShot.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/05/13/2015-05-13-objective-c-coding-guidelines/"/>
+
+  <title> Objective-C Coding Guidelines In Chinese | 浮生若梦 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">浮生若梦</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">凡所有相，皆是虚妄</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'DwofihdiotyB7xqRnfEy','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Objective-C Coding Guidelines In Chinese
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-13T00:00:00+08:00" content="2015-05-13">
+              2015-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/13/2015-05-13-objective-c-coding-guidelines/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/13/2015-05-13-objective-c-coding-guidelines/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Objective-C编码规范，内容来自苹果、谷歌的文档翻译，自己的编码经验和对其它资料的总结。</p>
+<p>转自<a href="https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese" target="_blank" rel="external">https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese</a>  </p>
+<p>##概要</p>
+<p>Objective-C是一门面向对象的动态编程语言，主要用于编写iOS和Mac应用程序。关于Objective-C的编码规范，苹果和谷歌都已经有很好的总结：</p>
+<ul>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html" target="_blank" rel="external">Apple Coding Guidelines for Cocoa</a></li>
+<li><a href="https://google-styleguide.googlecode.com/svn/trunk/objcguide.xml?showone=Line_Length#Line_Length" target="_blank" rel="external">Google Objective-C Style Guide</a></li>
+</ul>
+<p>本文主要整合了对上述文档的翻译、作者自己的编程经验和其他的相关资料，为公司总结出一份通用的编码规范。</p>
+<a id="more"></a>
+<p>##代码格式</p>
+<p>###使用空格而不是制表符Tab</p>
+<p>不要在工程里使用Tab键，使用空格来进行缩进。在<code>Xcode &gt; Preferences &gt; Text Editing</code>将Tab和自动缩进都设置为<strong>4</strong>个空格。（<em>Google的标准是使用两个空格来缩进，但这里还是推荐使用Xcode默认的设置。</em>）</p>
+<p>###每一行的最大长度</p>
+<p>同样的，在<code>Xcode &gt; Preferences &gt; Text Editing &gt; Page guide at column:</code>中将最大行长设置为<strong>80</strong>，过长的一行代码将会导致可读性问题。</p>
+<p>###函数的书写</p>
+<p>一个典型的Objective-C函数应该是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (void)writeVideoFrameWithData:(NSData *)frameData timeStamp:(int)timeStamp &#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在<code>-</code>和<code>(void)</code>之间应该有一个空格，第一个大括号<code>{</code>的位置在函数所在行的末尾，同样应该有一个空格。（<em>我司的C语言规范要求是第一个大括号单独占一行，但考虑到OC较长的函数名和苹果SDK代码的风格，还是将大括号放在行末。</em>）</p>
+<p>如果一个函数有特别多的参数或者名称很长，应该将其按照<code>:</code>来对齐分行显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">-(id)initWithModel:(IPCModle)model</div><div class="line">       ConnectType:(IPCConnectType)connectType</div><div class="line">        Resolution:(IPCResolution)resolution</div><div class="line">          AuthName:(NSString *)authName</div><div class="line">          Password:(NSString *)password</div><div class="line">               MAC:(NSString *)mac</div><div class="line">              AzIp:(NSString *)az_ip</div><div class="line">             AzDns:(NSString *)az_dns</div><div class="line">             Token:(NSString *)token</div><div class="line">             Email:(NSString *)email</div><div class="line">          Delegate:(id&lt;IPCConnectHandlerDelegate&gt;)delegate;</div></pre></td></tr></table></figure>
+<p>在分行时，如果第一段名称过短，后续名称可以以Tab的长度（4个空格）为单位进行缩进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)short:(GTMFoo *)theFoo</div><div class="line">        longKeyword:(NSRect)theRect</div><div class="line">  evenLongerKeyword:(float)theInterval</div><div class="line">              error:(NSError **)theError &#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###函数调用</p>
+<p>函数调用的格式和书写差不多，可以按照函数的长短来选择写在一行或者分成多行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//写在一行</div><div class="line">[myObject doFooWith:arg1 name:arg2 error:arg3];</div><div class="line"></div><div class="line">//分行写，按照&apos;:&apos;对齐</div><div class="line">[myObject doFooWith:arg1</div><div class="line">               name:arg2</div><div class="line">              error:arg3];</div><div class="line"></div><div class="line">//第一段名称过短的话后续可以进行缩进</div><div class="line">[myObj short:arg1</div><div class="line">          longKeyword:arg2</div><div class="line">    evenLongerKeyword:arg3</div><div class="line">                error:arg4];</div></pre></td></tr></table></figure>
+<p>以下写法是错误的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//错误，要么写在一行，要么全部分行</div><div class="line">[myObject doFooWith:arg1 name:arg2</div><div class="line">              error:arg3];</div><div class="line">[myObject doFooWith:arg1</div><div class="line">               name:arg2 error:arg3];</div><div class="line"></div><div class="line">//错误，按照&apos;:&apos;来对齐，而不是关键字</div><div class="line">[myObject doFooWith:arg1</div><div class="line">          name:arg2</div><div class="line">          error:arg3];</div></pre></td></tr></table></figure>
+<p>###@public和@private标记符</p>
+<p>@public和@private标记符应该以<strong>一个空格</strong>来进行缩进：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@interface MyClass : NSObject &#123;</div><div class="line"> @public</div><div class="line">  ...</div><div class="line"> @private</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>###协议（Protocols）</p>
+<p>在书写协议的时候注意用<code>&lt;&gt;</code>括起来的协议和类型名之间是没有空格的，比如<code>IPCConnectHandler()&lt;IPCPreconnectorDelegate&gt;</code>,这个规则适用所有书写协议的地方，包括函数声明、类声明、实例变量等等：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@interface MyProtocoledClass : NSObject&lt;NSWindowDelegate&gt; &#123;</div><div class="line"> @private</div><div class="line">    id&lt;MyFancyDelegate&gt; _delegate;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setDelegate:(id&lt;MyFancyDelegate&gt;)aDelegate;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>###闭包（Blocks）</p>
+<p>根据block的长度，有不同的书写规则：</p>
+<ul>
+<li>较短的block可以写在一行内。</li>
+<li>如果分行显示的话，block的右括号<code>}</code>应该和调用block那行代码的第一个非空字符对齐。</li>
+<li>block内的代码采用<strong>4个空格</strong>的缩进。</li>
+<li>如果block过于庞大，应该单独声明成一个变量来使用。</li>
+<li><code>^</code>和<code>(</code>之间，<code>^</code>和<code>{</code>之间都没有空格，参数列表的右括号<code>)</code>和<code>{</code>之间有一个空格。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">//较短的block写在一行内</div><div class="line">[operation setCompletionBlock:^&#123; [self onOperationDone]; &#125;];</div><div class="line"></div><div class="line">//分行书写的block，内部使用4空格缩进</div><div class="line">[operation setCompletionBlock:^&#123;</div><div class="line">    [self.delegate newDataAvailable];</div><div class="line">&#125;];</div><div class="line"></div><div class="line">//使用C语言API调用的block遵循同样的书写规则</div><div class="line">dispatch_async(_fileIOQueue, ^&#123;</div><div class="line">    NSString* path = [self sessionFilePath];</div><div class="line">    if (path) &#123;</div><div class="line">      // ...</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//较长的block关键字可以缩进后在新行书写，注意block的右括号&apos;&#125;&apos;和调用block那行代码的第一个非空字符对齐</div><div class="line">[[SessionService sharedService]</div><div class="line">    loadWindowWithCompletionBlock:^(SessionWindow *window) &#123;</div><div class="line">        if (window) &#123;</div><div class="line">          [self windowDidLoad:window];</div><div class="line">        &#125; else &#123;</div><div class="line">          [self errorLoadingWindow];</div><div class="line">        &#125;</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">//较长的block参数列表同样可以缩进后在新行书写</div><div class="line">[[SessionService sharedService]</div><div class="line">    loadWindowWithCompletionBlock:</div><div class="line">        ^(SessionWindow *window) &#123;</div><div class="line">            if (window) &#123;</div><div class="line">              [self windowDidLoad:window];</div><div class="line">            &#125; else &#123;</div><div class="line">              [self errorLoadingWindow];</div><div class="line">            &#125;</div><div class="line">        &#125;];</div><div class="line"></div><div class="line">//庞大的block应该单独定义成变量使用</div><div class="line">void (^largeBlock)(void) = ^&#123;</div><div class="line">    // ...</div><div class="line">&#125;;</div><div class="line">[_operationQueue addOperationWithBlock:largeBlock];</div><div class="line"></div><div class="line">//在一个调用中使用多个block，注意到他们不是像函数那样通过&apos;:&apos;对齐的，而是同时进行了4个空格的缩进</div><div class="line">[myObject doSomethingWith:arg1</div><div class="line">    firstBlock:^(Foo *a) &#123;</div><div class="line">        // ...</div><div class="line">    &#125;</div><div class="line">    secondBlock:^(Bar *b) &#123;</div><div class="line">        // ...</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<p>###数据结构的语法糖</p>
+<p>应该使用可读性更好的语法糖来构造<code>NSArray</code>，<code>NSDictionary</code>等数据结构，避免使用冗长的<code>alloc</code>,<code>init</code>方法。</p>
+<p>如果构造代码写在一行，需要在括号两端留有一个空格，使得被构造的元素于与构造语法区分开来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//正确，在语法糖的&quot;[]&quot;或者&quot;&#123;&#125;&quot;两端留有空格</div><div class="line">NSArray *array = @[ [foo description], @&quot;Another String&quot;, [bar description] ];</div><div class="line">NSDictionary *dict = @&#123; NSForegroundColorAttributeName : [NSColor redColor] &#125;;</div><div class="line"></div><div class="line">//不正确，不留有空格降低了可读性</div><div class="line">NSArray* array = @[[foo description], [bar description]];</div><div class="line">NSDictionary* dict = @&#123;NSForegroundColorAttributeName: [NSColor redColor]&#125;;</div></pre></td></tr></table></figure>
+<p>如果构造代码不写在一行内，构造元素需要使用<strong>两个空格</strong>来进行缩进，右括号<code>]</code>或者<code>}</code>写在新的一行，并且与调用语法糖那行代码的第一个非空字符对齐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">NSArray *array = @[</div><div class="line">  @&quot;This&quot;,</div><div class="line">  @&quot;is&quot;,</div><div class="line">  @&quot;an&quot;,</div><div class="line">  @&quot;array&quot;</div><div class="line">];</div><div class="line"></div><div class="line">NSDictionary *dictionary = @&#123;</div><div class="line">  NSFontAttributeName : [NSFont fontWithName:@&quot;Helvetica-Bold&quot; size:12],</div><div class="line">  NSForegroundColorAttributeName : fontColor</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>构造字典时，字典的Key和Value与中间的冒号<code>:</code>都要留有一个空格，多行书写时，也可以将Value对齐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//正确，冒号&apos;:&apos;前后留有一个空格</div><div class="line">NSDictionary *option1 = @&#123;</div><div class="line">  NSFontAttributeName : [NSFont fontWithName:@&quot;Helvetica-Bold&quot; size:12],</div><div class="line">  NSForegroundColorAttributeName : fontColor</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//正确，按照Value来对齐</div><div class="line">NSDictionary *option2 = @&#123;</div><div class="line">  NSFontAttributeName :            [NSFont fontWithName:@&quot;Arial&quot; size:12],</div><div class="line">  NSForegroundColorAttributeName : fontColor</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//错误，冒号前应该有一个空格</div><div class="line">NSDictionary *wrong = @&#123;</div><div class="line">  AKey:       @&quot;b&quot;,</div><div class="line">  BLongerKey: @&quot;c&quot;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//错误，每一个元素要么单独成为一行，要么全部写在一行内</div><div class="line">NSDictionary *alsoWrong= @&#123; AKey : @&quot;a&quot;,</div><div class="line">                            BLongerKey : @&quot;b&quot; &#125;;</div><div class="line"></div><div class="line">//错误，在冒号前只能有一个空格，冒号后才可以考虑按照Value对齐</div><div class="line">NSDictionary *stillWrong = @&#123;</div><div class="line">  AKey       : @&quot;b&quot;,</div><div class="line">  BLongerKey : @&quot;c&quot;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>##命名规范</p>
+<p>###基本原则</p>
+<p>####清晰</p>
+<p>命名应该尽可能的清晰和简洁，但在Objective-C中，清晰比简洁更重要。由于Xcode强大的自动补全功能，我们不必担心名称过长的问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//清晰</div><div class="line">insertObject:atIndex:</div><div class="line"></div><div class="line">//不清晰，insert的对象类型和at的位置属性没有说明</div><div class="line">insert:at:</div><div class="line"></div><div class="line">//清晰</div><div class="line">removeObjectAtIndex:</div><div class="line"></div><div class="line">//不清晰，remove的对象类型没有说明，参数的作用没有说明</div><div class="line">remove:</div></pre></td></tr></table></figure>
+<p>不要使用单词的简写，拼写出完整的单词：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//清晰</div><div class="line">destinationSelection</div><div class="line">setBackgroundColor:</div><div class="line"></div><div class="line">//不清晰，不要使用简写</div><div class="line">destSel</div><div class="line">setBkgdColor:</div></pre></td></tr></table></figure></p>
+<p>然而，有部分单词简写在Objective-C编码过程中是非常常用的，以至于成为了一种规范，这些简写可以在代码中直接使用，下面列举了部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">alloc   == Allocate					max    == Maximum</div><div class="line">alt     == Alternate				min    == Minimum</div><div class="line">app     == Application				msg    == Message</div><div class="line">calc    == Calculate				nib    == Interface Builder archive</div><div class="line">dealloc == Deallocate				pboard == Pasteboard</div><div class="line">func    == Function					rect   == Rectangle</div><div class="line">horiz   == Horizontal				Rep    == Representation (used in class name such as NSBitmapImageRep).</div><div class="line">info    == Information				temp   == Temporary</div><div class="line">init    == Initialize				vert   == Vertical</div><div class="line">int     == Integer</div></pre></td></tr></table></figure>
+<p>命名方法或者函数时要避免歧义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//有歧义，是返回sendPort还是send一个Port？</div><div class="line">sendPort</div><div class="line"></div><div class="line">//有歧义，是返回一个名字属性的值还是display一个name的动作？</div><div class="line">displayName</div></pre></td></tr></table></figure>
+<p>####一致性</p>
+<p>整个工程的命名风格要保持一致性，最好和苹果SDK的代码保持统一。不同类中完成相似功能的方法应该叫一样的名字，比如我们总是用<code>count</code>来返回集合的个数，不能在A类中使用<code>count</code>而在B类中使用<code>getNumber</code>。</p>
+<p>###使用前缀</p>
+<p>如果代码需要打包成Framework给别的工程使用，或者工程项目非常庞大，需要拆分成不同的模块，使用命名前缀是非常有用的。</p>
+<ul>
+<li><p>前缀由大写的字母缩写组成，比如Cocoa中<code>NS</code>前缀代表Founation框架中的类，<code>IB</code>则代表Interface Builder框架。</p>
+</li>
+<li><p>可以在为类、协议、函数、常量以及typedef宏命名的时候使用前缀，但注意<strong>不要</strong>为成员变量或者方法使用前缀，因为他们本身就包含在类的命名空间内。</p>
+</li>
+<li><p>命名前缀的时候不要和苹果SDK框架冲突。</p>
+</li>
+</ul>
+<p>###命名类和协议（Class&amp;Protocol）</p>
+<p>类名以大写字母开头，应该包含一个<em>名词</em>来表示它代表的对象类型，同时可以加上必要的前缀，比如<code>NSString</code>, <code>NSDate</code>, <code>NSScanner</code>, <code>NSApplication</code>等等。</p>
+<p>而协议名称应该清晰地表示它所执行的行为，而且要和类名区别开来，所以通常使用<code>ing</code>词尾来命名一个协议，比如<code>NSCopying</code>,<code>NSLocking</code>。</p>
+<p>有些协议本身包含了很多不相关的功能，主要用来为某一特定类服务，这时候可以直接用类名来命名这个协议，比如<code>NSObject</code>协议，它包含了id对象在生存周期内的一系列方法。</p>
+<p>###命名头文件（Headers）</p>
+<p>源码的头文件名应该清晰地暗示它的功能和包含的内容：</p>
+<ul>
+<li><p>如果头文件内只定义了单个类或者协议，直接用类名或者协议名来命名头文件，比如<code>NSLocale.h</code>定义了<code>NSLocale</code>类。</p>
+</li>
+<li><p>如果头文件内定义了一系列的类、协议、类别，使用其中最主要的类名来命名头文件，比如<code>NSString.h</code>定义了<code>NSString</code>和<code>NSMutableString</code>。</p>
+</li>
+<li><p>每一个Framework都应该有一个和框架同名的头文件，包含了框架中所有公共类头文件的引用，比如<code>Foundation.h</code></p>
+</li>
+<li><p>Framework中有时候会实现在别的框架中类的类别扩展，这样的文件通常使用<code>被扩展的框架名</code>+<code>Additions</code>的方式来命名，比如<code>NSBundleAdditions.h</code>。</p>
+</li>
+</ul>
+<p>###命名方法（Methods）</p>
+<p>Objective-C的方法名通常都比较长，这是为了让程序有更好地可读性，按苹果的说法<em>“好的方法名应当可以以一个句子的形式朗读出来”</em>。</p>
+<p>方法一般以小写字母打头，每一个后续的单词首字母大写，方法名中不应该有标点符号（<em>包括下划线</em>），有两个例外：</p>
+<ul>
+<li>可以用一些通用的大写字母缩写打头方法，比如<code>PDF</code>,<code>TIFF</code>等。</li>
+<li>可以用带下划线的前缀来命名私有方法或者类别中的方法。</li>
+</ul>
+<p>如果方法表示让对象执行一个动作，使用动词打头来命名，注意不要使用<code>do</code>，<code>does</code>这种多余的关键字，动词本身的暗示就足够了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//动词打头的方法表示让对象执行一个动作</div><div class="line">- (void)invokeWithTarget:(id)target;</div><div class="line">- (void)selectTabViewItem:(NSTabViewItem *)tabViewItem;</div></pre></td></tr></table></figure>
+<p>如果方法是为了获取对象的一个属性值，直接用属性名称来命名这个方法，注意不要添加<code>get</code>或者其他的动词前缀：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//正确，使用属性名来命名方法</div><div class="line">- (NSSize)cellSize;</div><div class="line"></div><div class="line">//错误，添加了多余的动词前缀</div><div class="line">- (NSSize)calcCellSize;</div><div class="line">- (NSSize)getCellSize;</div></pre></td></tr></table></figure>
+<p>对于有多个参数的方法，务必在每一个参数前都添加关键词，关键词应当清晰说明参数的作用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//正确，保证每个参数都有关键词修饰</div><div class="line">- (void)sendAction:(SEL)aSelector toObject:(id)anObject forAllCells:(BOOL)flag;</div><div class="line"></div><div class="line">//错误，遗漏关键词</div><div class="line">- (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag;</div><div class="line"></div><div class="line">//正确</div><div class="line">- (id)viewWithTag:(NSInteger)aTag;</div><div class="line"></div><div class="line">//错误，关键词的作用不清晰</div><div class="line">- (id)taggedView:(int)aTag;</div></pre></td></tr></table></figure>
+<p>不要用<code>and</code>来连接两个参数，通常<code>and</code>用来表示方法执行了两个相对独立的操作（<em>从设计上来说，这时候应该拆分成两个独立的方法</em>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//错误，不要使用&quot;and&quot;来连接参数</div><div class="line">- (int)runModalForDirectory:(NSString *)path andFile:(NSString *)name andTypes:(NSArray *)fileTypes;</div><div class="line"></div><div class="line">//正确，使用&quot;and&quot;来表示两个相对独立的操作</div><div class="line">- (BOOL)openFile:(NSString *)fullPath withApplication:(NSString *)appName andDeactivate:(BOOL)flag;</div></pre></td></tr></table></figure>
+<p>方法的参数命名也有一些需要注意的地方:</p>
+<ul>
+<li>和方法名类似，参数的第一个字母小写，后面的每一个单词首字母大写</li>
+<li>不要再方法名中使用类似<code>pointer</code>,<code>ptr</code>这样的字眼去表示指针，参数本身的类型足以说明</li>
+<li>不要使用只有一两个字母的参数名</li>
+<li>不要使用简写，拼出完整的单词</li>
+</ul>
+<p>下面列举了一些常用参数名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">...action:(SEL)aSelector</div><div class="line">...alignment:(int)mode</div><div class="line">...atIndex:(int)index</div><div class="line">...content:(NSRect)aRect</div><div class="line">...doubleValue:(double)aDouble</div><div class="line">...floatValue:(float)aFloat</div><div class="line">...font:(NSFont *)fontObj</div><div class="line">...frame:(NSRect)frameRect</div><div class="line">...intValue:(int)anInt</div><div class="line">...keyEquivalent:(NSString *)charCode</div><div class="line">...length:(int)numBytes</div><div class="line">...point:(NSPoint)aPoint</div><div class="line">...stringValue:(NSString *)aString</div><div class="line">...tag:(int)anInt</div><div class="line">...target:(id)anObject</div><div class="line">...title:(NSString *)aString</div></pre></td></tr></table></figure>
+<p>###存取方法（Accessor Methods）</p>
+<p>存取方法是指用来获取和设置类属性值的方法，属性的不同类型，对应着不同的存取方法规范：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//属性是一个名词时的存取方法范式</div><div class="line">- (type)noun;</div><div class="line">- (void)setNoun:(type)aNoun;</div><div class="line">//栗子</div><div class="line">- (NSString *)title;</div><div class="line">- (void)setTitle:(NSString *)aTitle;</div><div class="line"></div><div class="line">//属性是一个形容词时存取方法的范式</div><div class="line">- (BOOL)isAdjective;</div><div class="line">- (void)setAdjective:(BOOL)flag;</div><div class="line">//栗子</div><div class="line">- (BOOL)isEditable;</div><div class="line">- (void)setEditable:(BOOL)flag;</div><div class="line"></div><div class="line">//属性是一个动词时存取方法的范式</div><div class="line">- (BOOL)verbObject;</div><div class="line">- (void)setVerbObject:(BOOL)flag;</div><div class="line">//栗子</div><div class="line">- (BOOL)showsAlpha;</div><div class="line">- (void)setShowsAlpha:(BOOL)flag;</div></pre></td></tr></table></figure>
+<p>命名存取方法时不要将动词转化为被动形式来使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//正确</div><div class="line">- (void)setAcceptsGlyphInfo:(BOOL)flag;</div><div class="line">- (BOOL)acceptsGlyphInfo;</div><div class="line"></div><div class="line">//错误，不要使用动词的被动形式</div><div class="line">- (void)setGlyphInfoAccepted:(BOOL)flag;</div><div class="line">- (BOOL)glyphInfoAccepted;</div></pre></td></tr></table></figure></p>
+<p>可以使用<code>can</code>,<code>should</code>,<code>will</code>等词来协助表达存取方法的意思，但不要使用<code>do</code>,和<code>does</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//正确</div><div class="line">- (void)setCanHide:(BOOL)flag;</div><div class="line">- (BOOL)canHide;</div><div class="line">- (void)setShouldCloseDocument:(BOOL)flag;</div><div class="line">- (BOOL)shouldCloseDocument;</div><div class="line"></div><div class="line">//错误，不要使用&quot;do&quot;或者&quot;does&quot;</div><div class="line">- (void)setDoesAcceptGlyphInfo:(BOOL)flag;</div><div class="line">- (BOOL)doesAcceptGlyphInfo;</div></pre></td></tr></table></figure></p>
+<p>为什么Objective-C中不适用<code>get</code>前缀来表示属性获取方法？因为<code>get</code>在Objective-C中通常只用来表示从函数指针返回值的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//三个参数都是作为函数的返回值来使用的，这样的函数名可以使用&quot;get&quot;前缀</div><div class="line">- (void)getLineDash:(float *)pattern count:(int *)count phase:(float *)phase;</div></pre></td></tr></table></figure></p>
+<p>###命名委托（Delegate）</p>
+<p>当特定的事件发生时，对象会触发它注册的委托方法。委托是Objective-C中常用的传递消息的方式。委托有它固定的命名范式。</p>
+<p>一个委托方法的第一个参数是触发它的对象，第一个关键词是触发对象的类名，除非委托方法只有一个名为<code>sender</code>的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//第一个关键词为触发委托的类名</div><div class="line">- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row;</div><div class="line">- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename;</div><div class="line"></div><div class="line">//当只有一个&quot;sender&quot;参数时可以省略类名</div><div class="line">- (BOOL)applicationOpenUntitledFile:(NSApplication *)sender;</div></pre></td></tr></table></figure></p>
+<p>根据委托方法触发的时机和目的，使用<code>should</code>,<code>will</code>,<code>did</code>等关键词<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (void)browserDidScroll:(NSBrowser *)sender;</div><div class="line"></div><div class="line">- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window;、</div><div class="line"></div><div class="line">- (BOOL)windowShouldClose:(id)sender;</div></pre></td></tr></table></figure></p>
+<p>###集合操作类方法（Collection Methods）</p>
+<p>有些对象管理着一系列其它对象或者元素的集合，需要使用类似“增删查改”的方法来对集合进行操作，这些方法的命名范式一般为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//集合操作范式</div><div class="line">- (void)addElement:(elementType)anObj;</div><div class="line">- (void)removeElement:(elementType)anObj;</div><div class="line">- (NSArray *)elements;</div><div class="line"></div><div class="line">//栗子</div><div class="line">- (void)addLayoutManager:(NSLayoutManager *)obj;</div><div class="line">- (void)removeLayoutManager:(NSLayoutManager *)obj;</div><div class="line">- (NSArray *)layoutManagers;</div></pre></td></tr></table></figure>
+<p>注意，如果返回的集合是无序的，使用<code>NSSet</code>来代替<code>NSArray</code>。如果需要将元素插入到特定的位置，使用类似于这样的命名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (void)insertLayoutManager:(NSLayoutManager *)obj atIndex:(int)index;</div><div class="line">- (void)removeLayoutManagerAtIndex:(int)index;</div></pre></td></tr></table></figure>
+<p>如果管理的集合元素中有指向管理对象的指针，要设置成<code>weak</code>类型以防止引用循环。</p>
+<p>下面是SDK中<code>NSWindow</code>类的集合操作方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (void)addChildWindow:(NSWindow *)childWin ordered:(NSWindowOrderingMode)place;</div><div class="line">- (void)removeChildWindow:(NSWindow *)childWin;</div><div class="line">- (NSArray *)childWindows;</div><div class="line">- (NSWindow *)parentWindow;</div><div class="line">- (void)setParentWindow:(NSWindow *)window;</div></pre></td></tr></table></figure>
+<p>###命名函数（Functions）</p>
+<p>在很多场合仍然需要用到函数，比如说如果一个对象是一个单例，那么应该使用函数来代替类方法执行相关操作。</p>
+<p>函数的命名和方法有一些不同，主要是：</p>
+<ul>
+<li>函数名称一般带有缩写前缀，表示方法所在的框架。</li>
+<li>前缀后的单词以“驼峰”表示法显示，第一个单词首字母大写。</li>
+</ul>
+<p>函数名的第一个单词通常是一个动词，表示方法执行的操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSHighlightRect</div><div class="line">NSDeallocateObject</div></pre></td></tr></table></figure>
+<p>如果函数返回其参数的某个属性，省略动词：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">unsigned int NSEventMaskFromType(NSEventType type)</div><div class="line">float NSHeight(NSRect aRect)</div></pre></td></tr></table></figure>
+<p>如果函数通过指针参数来返回值，需要在函数名中使用<code>Get</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const char *NSGetSizeAndAlignment(const char *typePtr, unsigned int *sizep, unsigned int *alignp)</div></pre></td></tr></table></figure>
+<p>函数的返回类型是BOOL时的命名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BOOL NSDecimalIsNotANumber(const NSDecimal *decimal)</div></pre></td></tr></table></figure>
+<p>###命名属性和实例变量（Properties&amp;Instance Variables）</p>
+<p>属性和对象的存取方法相关联，属性的第一个字母小写，后续单词首字母大写，不必添加前缀。属性按功能命名成名词或者动词：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//名词属性</div><div class="line">@property (strong) NSString *title;</div><div class="line"></div><div class="line">//动词属性</div><div class="line">@property (assign) BOOL showsAlpha;</div></pre></td></tr></table></figure>
+<p>属性也可以命名成形容词，这时候通常会指定一个带有<code>is</code>前缀的get方法来提高可读性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@property (assign, getter=isEditable) BOOL editable;</div></pre></td></tr></table></figure>
+<p>命名实例变量，在变量名前加上<code>_</code>前缀（<em>有些有历史的代码会将<code>_</code>放在后面</em>），其它和命名属性一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@implementation MyClass &#123;</div><div class="line">    BOOL _showsTitle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一般来说，类需要对使用者隐藏数据存储的细节，所以不要将实例方法定义成公共可访问的接口，可以使用<code>@private</code>，<code>@protected</code>前缀。</p>
+<p><em>按苹果的说法，不建议在除了<code>init</code>和<code>dealloc</code>方法以外的地方直接访问实例变量，但很多人认为直接访问会让代码更加清晰可读，只在需要计算或者执行操作的时候才使用存取方法访问，我就是这种习惯，所以这里不作要求。</em></p>
+<p>###命名常量（Constants）</p>
+<p>如果要定义一组相关的常量，尽量使用枚举类型（enumerations），枚举类型的命名规则和函数的命名规则相同。<br>建议使用 <code>NS_ENUM</code> 和 <code>NS_OPTIONS</code> 宏来定义枚举类型，参见官方的 <a href="https://developer.apple.com/library/ios/releasenotes/ObjectiveC/ModernizationObjC/AdoptingModernObjective-C/AdoptingModernObjective-C.html" target="_blank" rel="external">Adopting Modern Objective-C</a> 一文：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//定义一个枚举</div><div class="line">typedef NS_ENUM(NSInteger, NSMatrixMode) &#123;</div><div class="line">    NSRadioModeMatrix,</div><div class="line">    NSHighlightModeMatrix,</div><div class="line">    NSListModeMatrix,</div><div class="line">    NSTrackModeMatrix</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>定义bit map：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">typedef NS_OPTIONS(NSUInteger, NSWindowMask) &#123;</div><div class="line">    NSBorderlessWindowMask      = 0,</div><div class="line">    NSTitledWindowMask          = 1 &lt;&lt; 0,</div><div class="line">    NSClosableWindowMask        = 1 &lt;&lt; 1,</div><div class="line">    NSMiniaturizableWindowMask  = 1 &lt;&lt; 2,</div><div class="line">    NSResizableWindowMask       = 1 &lt;&lt; 3</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>使用<code>const</code>定义浮点型或者单个的整数型常量，如果要定义一组相关的整数常量，应该优先使用枚举。常量的命名规范和函数相同：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const float NSLightGray;</div></pre></td></tr></table></figure>
+<p>不要使用<code>#define</code>宏来定义常量，如果是整型常量，尽量使用枚举，浮点型常量，使用<code>const</code>定义。<code>#define</code>通常用来给编译器决定是否编译某块代码，比如常用的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#ifdef DEBUG</div></pre></td></tr></table></figure>
+<p>注意到一般由编译器定义的宏会在前后都有一个<code>__</code>，比如<em><code>__MACH__</code></em>。</p>
+<p>###命名通知（Notifications）</p>
+<p>通知常用于在模块间传递消息，所以通知要尽可能地表示出发生的事件，通知的命名范式是：</p>
+<pre><code>[触发通知的类名] + [Did | Will] + [动作] + Notification
+</code></pre><p>栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSApplicationDidBecomeActiveNotification</div><div class="line">NSWindowDidMiniaturizeNotification</div><div class="line">NSTextViewDidChangeSelectionNotification</div><div class="line">NSColorPanelColorDidChangeNotification</div></pre></td></tr></table></figure>
+<p>##注释</p>
+<p>读没有注释代码的痛苦你我都体会过，好的注释不仅能让人轻松读懂你的程序，还能提升代码的逼格。注意注释是为了让别人看懂，而不是仅仅你自己。</p>
+<p>###文件注释</p>
+<p>每一个文件都<strong>必须</strong>写文件注释，文件注释通常包含</p>
+<ul>
+<li>文件所在模块</li>
+<li>作者信息</li>
+<li>历史版本信息</li>
+<li>版权信息</li>
+<li>文件包含的内容，作用</li>
+</ul>
+<p>一段良好文件注释的栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">/*******************************************************************************</div><div class="line">	Copyright (C), 2011-2013, Andrew Min Chang</div><div class="line"></div><div class="line">	File name: 	AMCCommonLib.h</div><div class="line">	Author:		Andrew Chang (Zhang Min) </div><div class="line">	E-mail:		LaplaceZhang@126.com</div><div class="line">	</div><div class="line">	Description: 	</div><div class="line">			This file provide some covenient tool in calling library tools. One can easily include </div><div class="line">		library headers he wants by declaring the corresponding macros. </div><div class="line">			I hope this file is not only a header, but also a useful Linux library note.</div><div class="line">			</div><div class="line">	History:</div><div class="line">		2012-??-??: On about come date around middle of Year 2012, file created as &quot;commonLib.h&quot;</div><div class="line">		2012-08-20: Add shared memory library; add message queue.</div><div class="line">		2012-08-21: Add socket library (local)</div><div class="line">		2012-08-22: Add math library</div><div class="line">		2012-08-23: Add socket library (internet)</div><div class="line">		2012-08-24: Add daemon function</div><div class="line">		2012-10-10: Change file name as &quot;AMCCommonLib.h&quot;</div><div class="line">		2012-12-04: Add UDP support in AMC socket library</div><div class="line">		2013-01-07: Add basic data type such as &quot;sint8_t&quot;</div><div class="line">		2013-01-18: Add CFG_LIB_STR_NUM.</div><div class="line">		2013-01-22: Add CFG_LIB_TIMER.</div><div class="line">		2013-01-22: Remove CFG_LIB_DATA_TYPE because there is already AMCDataTypes.h</div><div class="line"></div><div class="line">	Copyright information: </div><div class="line">			This file was intended to be under GPL protocol. However, I may use this library</div><div class="line">		in my work as I am an employee. And my company may require me to keep it secret. </div><div class="line">		Therefore, this file is neither open source nor under GPL control. </div><div class="line">		</div><div class="line">********************************************************************************/</div></pre></td></tr></table></figure>
+<p><em>文件注释的格式通常不作要求，能清晰易读就可以了，但在整个工程中风格要统一。</em></p>
+<p>###代码注释</p>
+<p>好的代码应该是“自解释”（self-documenting）的，但仍然需要详细的注释来说明参数的意义、返回值、功能以及可能的副作用。</p>
+<p>方法、函数、类、协议、类别的定义都需要注释，推荐采用Apple的标准注释风格，好处是可以在引用的地方<code>alt+点击</code>自动弹出注释，非常方便。</p>
+<p>有很多可以自动生成注释格式的插件，推荐使用<a href="https://github.com/onevcat/VVDocumenter-Xcode" target="_blank" rel="external">VVDocumenter</a>：</p>
+<p><img src="https://raw.github.com/onevcat/VVDocumenter-Xcode/master/ScreenShot.gif" alt="Screenshot"></p>
+<p>一些良好的注释：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *  Create a new preconnector to replace the old one with given mac address.</div><div class="line"> *  NOTICE: We DO NOT stop the old preconnector, so handle it by yourself.</div><div class="line"> *</div><div class="line"> *  @param type       Connect type the preconnector use.</div><div class="line"> *  @param macAddress Preconnector&apos;s mac address.</div><div class="line"> */</div><div class="line">- (void)refreshConnectorWithConnectType:(IPCConnectType)type  Mac:(NSString *)macAddress;</div><div class="line"></div><div class="line">/**</div><div class="line"> *  Stop current preconnecting when application is going to background.</div><div class="line"> */</div><div class="line">-(void)stopRunning;</div><div class="line"></div><div class="line">/**</div><div class="line"> *  Get the COPY of cloud device with a given mac address.</div><div class="line"> *</div><div class="line"> *  @param macAddress Mac address of the device.</div><div class="line"> *</div><div class="line"> *  @return Instance of IPCCloudDevice.</div><div class="line"> */</div><div class="line">-(IPCCloudDevice *)getCloudDeviceWithMac:(NSString *)macAddress;</div><div class="line"></div><div class="line">// A delegate for NSApplication to handle notifications about app</div><div class="line">// launch and shutdown. Owned by the main app controller.</div><div class="line">@interface MyAppDelegate : NSObject &#123;</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>协议、委托的注释要明确说明其被触发的条件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** Delegate - Sent when failed to init connection, like p2p failed. */</div><div class="line">-(void)initConnectionDidFailed:(IPCConnectHandler *)handler;</div></pre></td></tr></table></figure>
+<p>如果在注释中要引用参数名或者方法函数名，使用<code>||</code>将参数或者方法括起来以避免歧义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// Sometimes we need |count| to be less than zero.</div><div class="line"></div><div class="line">// Remember to call |StringWithoutSpaces(&quot;foo bar baz&quot;)|</div></pre></td></tr></table></figure>
+<p><strong>定义在头文件里的接口方法、属性必须要有注释！</strong></p>
+<p>##编码风格</p>
+<p>每个人都有自己的编码风格，这里总结了一些比较好的Cocoa编程风格和注意点。</p>
+<p>###不要使用new方法</p>
+<p>尽管很多时候能用<code>new</code>代替<code>alloc init</code>方法，但这可能会导致调试内存时出现不可预料的问题。Cocoa的规范就是使用<code>alloc init</code>方法，使用<code>new</code>会让一些读者困惑。</p>
+<p>###Public API要尽量简洁</p>
+<p>共有接口要设计的简洁，满足核心的功能需求就可以了。不要设计很少会被用到，但是参数极其复杂的API。如果要定义复杂的方法，使用类别或者类扩展。</p>
+<p>####import和#include</p>
+<p><code>#import</code>是Cocoa中常用的引用头文件的方式，它能自动防止重复引用文件，什么时候使用<code>#import</code>，什么时候使用<code>#include</code>呢？</p>
+<ul>
+<li>当引用的是一个Objective-C或者Objective-C++的头文件时，使用<code>#import</code></li>
+<li>当引用的是一个C或者C++的头文件时，使用<code>#include</code>，这时必须要保证被引用的文件提供了保护域（#define guard）。</li>
+</ul>
+<p>栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#import &lt;Cocoa/Cocoa.h&gt;</div><div class="line">#include &lt;CoreFoundation/CoreFoundation.h&gt;</div><div class="line">#import &quot;GTMFoo.h&quot;</div><div class="line">#include &quot;base/basictypes.h&quot;</div></pre></td></tr></table></figure>
+<p>为什么不全部使用<code>#import</code>呢？主要是为了保证代码在不同平台间共享时不出现问题。</p>
+<p>###引用框架的根头文件</p>
+<p>上面提到过，每一个框架都会有一个和框架同名的头文件，它包含了框架内接口的所有引用，在使用框架的时候，应该直接引用这个根头文件，而不是其它子模块的头文件，即使是你只用到了其中的一小部分，编译器会自动完成优化的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//正确，引用根头文件</div><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">//错误，不要单独引用框架内的其它头文件</div><div class="line">#import &lt;Foundation/NSArray.h&gt;</div><div class="line">#import &lt;Foundation/NSString.h&gt;</div></pre></td></tr></table></figure>
+<p>###BOOL的使用</p>
+<p>BOOL在Objective-C中被定义为<code>signed char</code>类型，这意味着一个BOOL类型的变量不仅仅可以表示<code>YES</code>(1)和<code>NO</code>(0)两个值，所以永远<strong>不要</strong>将BOOL类型变量直接和<code>YES</code>比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//错误，无法确定|great|的值是否是YES(1)，不要将BOOL值直接与YES比较</div><div class="line">BOOL great = [foo isGreat];</div><div class="line">if (great == YES)</div><div class="line">  // ...be great!</div><div class="line"></div><div class="line">//正确</div><div class="line">BOOL great = [foo isGreat];</div><div class="line">if (great)</div><div class="line">  // ...be great!</div></pre></td></tr></table></figure>
+<p>同样的，也不要将其它类型的值作为BOOL来返回，这种情况下，BOOL变量只会取值的最后一个字节来赋值，这样很可能会取到0（NO）。但是，一些逻辑操作符比如<code>&amp;&amp;</code>,<code>||</code>,<code>!</code>的返回是可以直接赋给BOOL的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//错误，不要将其它类型转化为BOOL返回</div><div class="line">- (BOOL)isBold &#123;</div><div class="line">  return [self fontTraits] &amp; NSFontBoldTrait;</div><div class="line">&#125;</div><div class="line">- (BOOL)isValid &#123;</div><div class="line">  return [self stringValue];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//正确</div><div class="line">- (BOOL)isBold &#123;</div><div class="line">  return ([self fontTraits] &amp; NSFontBoldTrait) ? YES : NO;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//正确，逻辑操作符可以直接转化为BOOL</div><div class="line">- (BOOL)isValid &#123;</div><div class="line">  return [self stringValue] != nil;</div><div class="line">&#125;</div><div class="line">- (BOOL)isEnabled &#123;</div><div class="line">  return [self isValid] &amp;&amp; [self isBold];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外BOOL类型可以和<code>_Bool</code>,<code>bool</code>相互转化，但是<strong>不能</strong>和<code>Boolean</code>转化。</p>
+<p>###使用ARC</p>
+<p>除非想要兼容一些古董级的机器和操作系统，我们没有理由放弃使用ARC。在最新版的Xcode(6.2)中，ARC是自动打开的，所以直接使用就好了。</p>
+<p>###在init和dealloc中不要用存取方法访问实例变量</p>
+<p>当<code>init``dealloc</code>方法被执行时，类的运行时环境不是处于正常状态的，使用存取方法访问变量可能会导致不可预料的结果，因此应当在这两个方法内直接访问实例变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//正确，直接访问实例变量</div><div class="line">- (instancetype)init &#123;</div><div class="line">  self = [super init];</div><div class="line">  if (self) &#123;</div><div class="line">    _bar = [[NSMutableString alloc] init];</div><div class="line">  &#125;</div><div class="line">  return self;</div><div class="line">&#125;</div><div class="line">- (void)dealloc &#123;</div><div class="line">  [_bar release];</div><div class="line">  [super dealloc];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//错误，不要通过存取方法访问</div><div class="line">- (instancetype)init &#123;</div><div class="line">  self = [super init];</div><div class="line">  if (self) &#123;</div><div class="line">    self.bar = [NSMutableString string];</div><div class="line">  &#125;</div><div class="line">  return self;</div><div class="line">&#125;</div><div class="line">- (void)dealloc &#123;</div><div class="line">  self.bar = nil;</div><div class="line">  [super dealloc];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###按照定义的顺序释放资源</p>
+<p>在类或者Controller的生命周期结束时，往往需要做一些扫尾工作，比如释放资源，停止线程等，这些扫尾工作的释放顺序应当与它们的初始化或者定义的顺序保持一致。这样做是为了方便调试时寻找错误，也能防止遗漏。</p>
+<p>###保证NSString在赋值时被复制</p>
+<p><code>NSString</code>非常常用，在它被传递或者赋值时应当保证是以复制（copy）的方式进行的，这样可以防止在不知情的情况下String的值被其它对象修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (void)setFoo:(NSString *)aFoo &#123;</div><div class="line">  _foo = [aFoo copy];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###使用NSNumber的语法糖</p>
+<p>使用带有<code>@</code>符号的语法糖来生成NSNumber对象能使代码更简洁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">NSNumber *fortyTwo = @42;</div><div class="line">NSNumber *piOverTwo = @(M_PI / 2);</div><div class="line">enum &#123;</div><div class="line">  kMyEnum = 2;</div><div class="line">&#125;;</div><div class="line">NSNumber *myEnum = @(kMyEnum);</div></pre></td></tr></table></figure>
+<p>###nil检查</p>
+<p>因为在Objective-C中向nil对象发送命令是不会抛出异常或者导致崩溃的，只是完全的“什么都不干”，所以，只在程序中使用nil来做逻辑上的检查。</p>
+<p>另外，不要使用诸如<code>nil == Object</code>或者<code>Object == nil</code>的形式来判断。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//正确，直接判断</div><div class="line">if (!objc) &#123;</div><div class="line">	...	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//错误，不要使用nil == Object的形式</div><div class="line">if (nil == objc) &#123;</div><div class="line">	...	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###属性的线程安全</p>
+<p>定义一个属性时，编译器会自动生成线程安全的存取方法（Atomic），但这样会大大降低性能，特别是对于那些需要频繁存取的属性来说，是极大的浪费。所以如果定义的属性不需要线程保护，记得手动添加属性关键字<code>nonatomic</code>来取消编译器的优化。</p>
+<p>###点分语法的使用</p>
+<p>不要用点分语法来调用方法，只用来访问属性。这样是为了防止代码可读性问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//正确，使用点分语法访问属性</div><div class="line">NSString *oldName = myObject.name;</div><div class="line">myObject.name = @&quot;Alice&quot;;</div><div class="line"></div><div class="line">//错误，不要用点分语法调用方法</div><div class="line">NSArray *array = [NSArray arrayWithObject:@&quot;hello&quot;];</div><div class="line">NSUInteger numberOfItems = array.count;</div><div class="line">array.release;</div></pre></td></tr></table></figure>
+<p>###Delegate要使用弱引用</p>
+<p>一个类的Delegate对象通常还引用着类本身，这样很容易造成引用循环的问题，所以类的Delegate属性要设置为弱引用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** delegate */</div><div class="line">@property (nonatomic, weak) id &lt;IPCConnectHandlerDelegate&gt; delegate;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ios/" rel="tag">#ios</a>
+          
+            <a href="/tags/object-c/" rel="tag">#object-c</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/13/2015-05-13-ios-code-snippet/" rel="next" title="iOS Code Snippet">
+                <i class="fa fa-chevron-left"></i> iOS Code Snippet
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/13/2015-05-13-git-useful-commands/" rel="prev" title="Git常用命令">
+                Git常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/05/13/2015-05-13-objective-c-coding-guidelines/"
+           data-title="Objective-C Coding Guidelines In Chinese" data-url="http://yoursite.com/2015/05/13/2015-05-13-objective-c-coding-guidelines/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars1.githubusercontent.com/u/3676676?v=3&s=140"
+               alt="时光" />
+          <p class="site-author-name" itemprop="name">时光</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhudongfang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://stackoverflow.com/users/3355097/zhudongfang" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stackoverflow"></i>
+                  
+                  StackOverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zhudongfang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zhudongfang0312" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2012 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">时光</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zhudongfang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
