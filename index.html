@@ -556,6 +556,283 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/12/2017-02-07-shell-read-config/" itemprop="url">
+                  Shell 读取配置文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-12T00:00:00+08:00" content="2016-12-12">
+              2016-12-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/12/2017-02-07-shell-read-config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/2017-02-07-shell-read-config/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>配置文件模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">email=zhudongfang0312@gmail.com</div><div class="line">author=zhudongfang</div></pre></td></tr></table></figure>
+<p>shell 脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">while read LINE</div><div class="line">do</div><div class="line">	echo $LINE</div><div class="line">	eval &quot;$LINE&quot;</div><div class="line">done &lt; config_file_path</div><div class="line"></div><div class="line">echo $email</div><div class="line">echo $author</div></pre></td></tr></table></figure>
+<p>更简单的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source config_file_path</div></pre></td></tr></table></figure>
+<p>作用域都是当前 script 上线文</p>
+<p>参考:<a href="http://bbs.chinaunix.net/thread-3628456-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-3628456-1-1.html</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/12/2016-12-11-generating-ipa-from-command-line/" itemprop="url">
+                  命令行打包 IPA
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-12T00:00:00+08:00" content="2016-12-12">
+              2016-12-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/12/2016-12-11-generating-ipa-from-command-line/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/2016-12-11-generating-ipa-from-command-line/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>涉及两个命令 <code>xcodebuild</code> 和 <code>xcrun</code></p>
+<ul>
+<li>xcodebuild – build Xcode projects and workspaces.</li>
+<li>xcrun - Run or locate development tools and properties.</li>
+</ul>
+<h5 id="一、编译"><a href="#一、编译" class="headerlink" title="一、编译"></a>一、编译</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// build project</div><div class="line">xcodebuild -project Test.xcodeproj -target Test -configuration Release</div><div class="line"></div><div class="line">// build workspace</div><div class="line">xcodebuild -workspace MyWorkspace.xcworkspace -scheme MyScheme build(默认 action，可省略）</div></pre></td></tr></table></figure>
+<h5 id="二、生成-ipa"><a href="#二、生成-ipa" class="headerlink" title="二、生成 ipa"></a>二、生成 ipa</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 注意 PackageApplication(好像新版 xcode 废弃了）</div><div class="line">// http://www.matrixprojects.net/p/xcodebuild-export-options-plist/#tldr</div><div class="line">xcrun -sdk iphoneos -v PackageApplication ./build/Release-iphoneos/xxx.app -o ~/Desktop/xxx.ipa</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/12/2016-12-12-resign-ipa/" itemprop="url">
                   IPA 重签名
                 </a>
@@ -646,11 +923,9 @@
 <h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><p>测试证书</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Certificate: iPhone Developer: h s (5LW76GJTQE)</div><div class="line">APP_ID_PREFIX: Q4JEMYK62P</div></pre></td></tr></table></figure>
 <p>entitlements 模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;application-identifier&lt;/key&gt;</div><div class="line">        &lt;string&gt;$&#123;APP_ID_PREFIX&#125;.$&#123;BUNDLE_ID&#125;&lt;/string&gt;</div><div class="line">            &lt;key&gt;com.apple.developer.team-identifier&lt;/key&gt;</div><div class="line">                &lt;string&gt;$&#123;APP_ID_PREFIX&#125;&lt;/string&gt;</div><div class="line">                    &lt;key&gt;get-task-allow&lt;/key&gt;</div><div class="line">                        &lt;true/&gt;</div><div class="line">                        &lt;/dict&gt;</div><div class="line">                        &lt;/plist&gt;</div></pre></td></tr></table></figure>
-<pre><code>参考：
-[iOS批量自动打包和部署(Ⅱ):自动打包](http://www.vienta.me/2016/02/24/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A1-%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85/)
-[iOS批量自动打包和部署(Ⅲ):重新签名和自动部署](http://www.vienta.me/2016/02/25/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A2-%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/)
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">	&lt;key&gt;application-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;.$&#123;BUNDLE_ID&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;com.apple.developer.team-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;get-task-allow&lt;/key&gt;</div><div class="line">	&lt;true/&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.vienta.me/2016/02/24/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A1-%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅱ):自动打包</a><br><a href="http://www.vienta.me/2016/02/25/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A2-%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅲ):重新签名和自动部署</a></p>
+
           
         
       
@@ -1393,275 +1668,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/17/2015-09-17-uitableview-section-header-height-zeror/" itemprop="url">
-                  UITableView#sectionHeaderHeight=0不起作用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-09-17T15:30:46+08:00" content="2015-09-17">
-              2015-09-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
-                    <span itemprop="name">开发那些事</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/17/2015-09-17-uitableview-section-header-height-zeror/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/2015-09-17-uitableview-section-header-height-zeror/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>调用UITableView#sectionHeaderHeight = 0;时TableView会使用默认的高度。</p>
-<p>这样UITableView#sectionHeaderHeight = CGFLOAT_MIN; 就达到目的了</p>
-<p><a href="http://stackoverflow.com/a/23955420/3355097" target="_blank" rel="external">How to change height of grouped UITableView header?</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/08/20/2015-08-20-how-to-create-bundle/" itemprop="url">
-                  如何把图片资源打包成Bundle
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-08-20T08:15:13+08:00" content="2015-08-20">
-              2015-08-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
-                    <span itemprop="name">开发那些事</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/08/20/2015-08-20-how-to-create-bundle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/20/2015-08-20-how-to-create-bundle/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="创建Bundle"><a href="#创建Bundle" class="headerlink" title="创建Bundle"></a>创建Bundle</h4><p>很简单。<br>打开Finder，直接创建Test.bundle；右键-&gt;显示包内容，把图片文件拖进去就ok了.<br>(或者先创建Test目录，把图片拖进去后，重命名为Test.bundle)</p>
-<h4 id="使用Bundle"><a href="#使用Bundle" class="headerlink" title="使用Bundle"></a>使用Bundle</h4><p>(1) 直接使用Test.bundle中图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[UIImage imageName:@&quot;Test.bundle/error&quot;];</div></pre></td></tr></table></figure></p>
-<p>(2) 获取Test.bundle路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSString *testBundlePath = [[NSBundle main] pathForResource:@&quot;Test&quot; ofType:@&quot;bundle&quot;];</div><div class="line">NSBundle *testBundle = [NSBundle bundleWithPath:testBundlePath];</div></pre></td></tr></table></figure></p>
-<p>参考:<br><a href="http://stackoverflow.com/a/2805618/3355097" target="_blank" rel="external">http://stackoverflow.com/a/2805618/3355097</a><br><a href="https://developer.apple.com/library/ios/documentation/CoreFoundation/Conceptual/CFBundles/AboutBundles/AboutBundles.html#//apple_ref/doc/uid/10000123i-CH100-SW7" target="_blank" rel="external">https://developer.apple.com/</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1707,7 +1713,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

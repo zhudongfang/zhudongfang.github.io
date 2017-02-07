@@ -267,6 +267,275 @@
             
               
                 
+                <a class="post-title-link" href="/2015/09/17/2015-09-17-uitableview-section-header-height-zeror/" itemprop="url">
+                  UITableView#sectionHeaderHeight=0不起作用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-17T15:30:46+08:00" content="2015-09-17">
+              2015-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/17/2015-09-17-uitableview-section-header-height-zeror/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/2015-09-17-uitableview-section-header-height-zeror/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>调用UITableView#sectionHeaderHeight = 0;时TableView会使用默认的高度。</p>
+<p>这样UITableView#sectionHeaderHeight = CGFLOAT_MIN; 就达到目的了</p>
+<p><a href="http://stackoverflow.com/a/23955420/3355097" target="_blank" rel="external">How to change height of grouped UITableView header?</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/20/2015-08-20-how-to-create-bundle/" itemprop="url">
+                  如何把图片资源打包成Bundle
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-20T08:15:13+08:00" content="2015-08-20">
+              2015-08-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/20/2015-08-20-how-to-create-bundle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/20/2015-08-20-how-to-create-bundle/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="创建Bundle"><a href="#创建Bundle" class="headerlink" title="创建Bundle"></a>创建Bundle</h4><p>很简单。<br>打开Finder，直接创建Test.bundle；右键-&gt;显示包内容，把图片文件拖进去就ok了.<br>(或者先创建Test目录，把图片拖进去后，重命名为Test.bundle)</p>
+<h4 id="使用Bundle"><a href="#使用Bundle" class="headerlink" title="使用Bundle"></a>使用Bundle</h4><p>(1) 直接使用Test.bundle中图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[UIImage imageName:@&quot;Test.bundle/error&quot;];</div></pre></td></tr></table></figure></p>
+<p>(2) 获取Test.bundle路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSString *testBundlePath = [[NSBundle main] pathForResource:@&quot;Test&quot; ofType:@&quot;bundle&quot;];</div><div class="line">NSBundle *testBundle = [NSBundle bundleWithPath:testBundlePath];</div></pre></td></tr></table></figure></p>
+<p>参考:<br><a href="http://stackoverflow.com/a/2805618/3355097" target="_blank" rel="external">http://stackoverflow.com/a/2805618/3355097</a><br><a href="https://developer.apple.com/library/ios/documentation/CoreFoundation/Conceptual/CFBundles/AboutBundles/AboutBundles.html#//apple_ref/doc/uid/10000123i-CH100-SW7" target="_blank" rel="external">https://developer.apple.com/</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/08/17/2015-08-17-uitextfield-observe-text/" itemprop="url">
                   UITextField监听
                 </a>
@@ -1314,249 +1583,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/13/2015-05-13-ios-code-snippet/" itemprop="url">
-                  iOS Code Snippet
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-13T00:00:00+08:00" content="2015-05-13">
-              2015-05-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
-                    <span itemprop="name">开发那些事</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/13/2015-05-13-ios-code-snippet/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/13/2015-05-13-ios-code-snippet/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>设置全局UINavigationBar和UITabBar风格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];</div><div class="line">[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:10/255.0f green:10/255.0f blue:10/255.0f alpha:0]];</div><div class="line"></div><div class="line">[[UITabBar appearance] setBarTintColor:[UIColor colorWithRed:10/255.0 green:10/255.0 blue:10/255.0 alpha:0]];</div><div class="line">[[UITabBar appearance] setBarStyle:UIBarStyleDefault];</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/13/2015-05-13-objective-c-coding-guidelines/" itemprop="url">
-                  Objective-C Coding Guidelines In Chinese
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-13T00:00:00+08:00" content="2015-05-13">
-              2015-05-13
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/13/2015-05-13-objective-c-coding-guidelines/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/13/2015-05-13-objective-c-coding-guidelines/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Objective-C编码规范，内容来自苹果、谷歌的文档翻译，自己的编码经验和对其它资料的总结。</p>
-<p>转自<a href="https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese">https://github.com/QianKaiLu/Objective-C-Coding-Guidelines-In-Chinese</a>  </p>
-<p>##概要</p>
-<p>Objective-C是一门面向对象的动态编程语言，主要用于编写iOS和Mac应用程序。关于Objective-C的编码规范，苹果和谷歌都已经有很好的总结：</p>
-<ul>
-<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html">Apple Coding Guidelines for Cocoa</a></li>
-<li><a href="https://google-styleguide.googlecode.com/svn/trunk/objcguide.xml?showone=Line_Length#Line_Length">Google Objective-C Style Guide</a></li>
-</ul>
-<p>本文主要整合了对上述文档的翻译、作者自己的编程经验和其他的相关资料，为公司总结出一份通用的编码规范。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/13/2015-05-13-objective-c-coding-guidelines/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1602,7 +1628,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

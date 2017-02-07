@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/12/2016-12-12-resign-ipa/index.html">
 <meta property="og:site_name" content="浮生若梦">
 <meta property="og:description" content="重签名步骤12345678910111213141516171819202122// 1. 解压unzip -q Example.ipa// 2. 删除旧签名rm -rf Payload/Example.app/_CodeSignature// 3. Info.plist/usr/libexec/PlistBuddy -c &amp;quot;Set CFBundleIdentifier $&amp;#123;N">
-<meta property="og:updated_time" content="2017-02-07T11:57:19.000Z">
+<meta property="og:updated_time" content="2017-02-07T12:18:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IPA 重签名">
 <meta name="twitter:description" content="重签名步骤12345678910111213141516171819202122// 1. 解压unzip -q Example.ipa// 2. 删除旧签名rm -rf Payload/Example.app/_CodeSignature// 3. Info.plist/usr/libexec/PlistBuddy -c &amp;quot;Set CFBundleIdentifier $&amp;#123;N">
@@ -354,11 +354,9 @@
 <h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><p>测试证书</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Certificate: iPhone Developer: h s (5LW76GJTQE)</div><div class="line">APP_ID_PREFIX: Q4JEMYK62P</div></pre></td></tr></table></figure>
 <p>entitlements 模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;application-identifier&lt;/key&gt;</div><div class="line">        &lt;string&gt;$&#123;APP_ID_PREFIX&#125;.$&#123;BUNDLE_ID&#125;&lt;/string&gt;</div><div class="line">            &lt;key&gt;com.apple.developer.team-identifier&lt;/key&gt;</div><div class="line">                &lt;string&gt;$&#123;APP_ID_PREFIX&#125;&lt;/string&gt;</div><div class="line">                    &lt;key&gt;get-task-allow&lt;/key&gt;</div><div class="line">                        &lt;true/&gt;</div><div class="line">                        &lt;/dict&gt;</div><div class="line">                        &lt;/plist&gt;</div></pre></td></tr></table></figure>
-<pre><code>参考：
-[iOS批量自动打包和部署(Ⅱ):自动打包](http://www.vienta.me/2016/02/24/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A1-%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85/)
-[iOS批量自动打包和部署(Ⅲ):重新签名和自动部署](http://www.vienta.me/2016/02/25/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A2-%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/)
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">	&lt;key&gt;application-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;.$&#123;BUNDLE_ID&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;com.apple.developer.team-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;get-task-allow&lt;/key&gt;</div><div class="line">	&lt;true/&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.vienta.me/2016/02/24/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A1-%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅱ):自动打包</a><br><a href="http://www.vienta.me/2016/02/25/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A2-%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅲ):重新签名和自动部署</a></p>
+
       
     </div>
 
@@ -397,8 +395,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/07/2017-02-07-create-local-git-server/" rel="prev" title="本地搭建 GIT 服务器">
-                本地搭建 GIT 服务器 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/12/2016-12-11-generating-ipa-from-command-line/" rel="prev" title="命令行打包 IPA">
+                命令行打包 IPA <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -471,7 +469,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

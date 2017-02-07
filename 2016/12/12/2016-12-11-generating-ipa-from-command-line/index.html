@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -86,13 +86,31 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="涉及两个命令 xcodebuild 和 xcrun
+
+xcodebuild – build Xcode projects and workspaces.
+xcrun - Run or locate development tools and properties.
+
+一、编译12345// build projectxcodebuild -project Test.xcodeproj -targe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命令行打包 IPA">
+<meta property="og:url" content="http://yoursite.com/2016/12/12/2016-12-11-generating-ipa-from-command-line/index.html">
 <meta property="og:site_name" content="浮生若梦">
-<meta property="og:updated_time" content="2016-08-11T02:46:51.000Z">
+<meta property="og:description" content="涉及两个命令 xcodebuild 和 xcrun
+
+xcodebuild – build Xcode projects and workspaces.
+xcrun - Run or locate development tools and properties.
+
+一、编译12345// build projectxcodebuild -project Test.xcodeproj -targe">
+<meta property="og:updated_time" content="2017-02-07T12:18:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="命令行打包 IPA">
+<meta name="twitter:description" content="涉及两个命令 xcodebuild 和 xcrun
+
+xcodebuild – build Xcode projects and workspaces.
+xcrun - Run or locate development tools and properties.
+
+一、编译12345// build projectxcodebuild -project Test.xcodeproj -targe">
 
 
 
@@ -113,15 +131,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/12/2016-12-11-generating-ipa-from-command-line/"/>
 
-  <title>
-  
-
-  
-    标签 | 浮生若梦
-  
-</title>
+  <title> 命令行打包 IPA | 浮生若梦 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -142,7 +154,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,16 +264,167 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 17 个标签
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                命令行打包 IPA
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-12T00:00:00+08:00" content="2016-12-12">
+              2016-12-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/12/2016-12-11-generating-ipa-from-command-line/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/2016-12-11-generating-ipa-from-command-line/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/Android/" style="font-size: 12px; color: #ccc">Android</a> <a href="/tags/Bundle/" style="font-size: 12px; color: #ccc">Bundle</a> <a href="/tags/Git/" style="font-size: 25.5px; color: #404040">Git</a> <a href="/tags/Objective-C/" style="font-size: 12px; color: #ccc">Objective-C</a> <a href="/tags/SSH/" style="font-size: 12px; color: #ccc">SSH</a> <a href="/tags/Shell/" style="font-size: 21px; color: #6f6f6f">Shell</a> <a href="/tags/UITableView/" style="font-size: 12px; color: #ccc">UITableView</a> <a href="/tags/UITextField/" style="font-size: 12px; color: #ccc">UITextField</a> <a href="/tags/UIWindow/" style="font-size: 12px; color: #ccc">UIWindow</a> <a href="/tags/XTest/" style="font-size: 12px; color: #ccc">XTest</a> <a href="/tags/Xcode/" style="font-size: 16.5px; color: #9d9d9d">Xcode</a> <a href="/tags/fragment/" style="font-size: 12px; color: #ccc">fragment</a> <a href="/tags/iOS/" style="font-size: 30px; color: #111">iOS</a> <a href="/tags/ios/" style="font-size: 12px; color: #ccc">ios</a> <a href="/tags/object-c/" style="font-size: 12px; color: #ccc">object-c</a> <a href="/tags/weakSelf/" style="font-size: 12px; color: #ccc">weakSelf</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>涉及两个命令 <code>xcodebuild</code> 和 <code>xcrun</code></p>
+<ul>
+<li>xcodebuild – build Xcode projects and workspaces.</li>
+<li>xcrun - Run or locate development tools and properties.</li>
+</ul>
+<h5 id="一、编译"><a href="#一、编译" class="headerlink" title="一、编译"></a>一、编译</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// build project</div><div class="line">xcodebuild -project Test.xcodeproj -target Test -configuration Release</div><div class="line"></div><div class="line">// build workspace</div><div class="line">xcodebuild -workspace MyWorkspace.xcworkspace -scheme MyScheme build(默认 action，可省略）</div></pre></td></tr></table></figure>
+<h5 id="二、生成-ipa"><a href="#二、生成-ipa" class="headerlink" title="二、生成 ipa"></a>二、生成 ipa</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 注意 PackageApplication(好像新版 xcode 废弃了）</div><div class="line">// http://www.matrixprojects.net/p/xcodebuild-export-options-plist/#tldr</div><div class="line">xcrun -sdk iphoneos -v PackageApplication ./build/Release-iphoneos/xxx.app -o ~/Desktop/xxx.ipa</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/12/2016-12-12-resign-ipa/" rel="next" title="IPA 重签名">
+                <i class="fa fa-chevron-left"></i> IPA 重签名
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/12/2017-02-07-shell-read-config/" rel="prev" title="Shell 读取配置文件">
+                Shell 读取配置文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -270,6 +433,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/12/2016-12-11-generating-ipa-from-command-line/"
+           data-title="命令行打包 IPA" data-url="http://yoursite.com/2016/12/12/2016-12-11-generating-ipa-from-command-line/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -289,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars1.githubusercontent.com/u/3676676?v=3&s=140"
@@ -385,6 +565,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、编译"><span class="nav-number">1.</span> <span class="nav-text">一、编译</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、生成-ipa"><span class="nav-number">2.</span> <span class="nav-text">二、生成 ipa</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -488,6 +679,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
