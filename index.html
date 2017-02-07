@@ -412,7 +412,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/07/2017-02-07-install-tmux/" itemprop="url">
+                <a class="post-title-link" href="/2017/02/06/2017-02-06-install-tmux/" itemprop="url">
                   安装 tmux
                 </a>
               
@@ -426,8 +426,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-07T00:00:00+08:00" content="2017-02-07">
-              2017-02-07
+            <time itemprop="dateCreated" datetime="2017-02-06T00:00:00+08:00" content="2017-02-06">
+              2017-02-06
             </time>
           </span>
 
@@ -468,8 +468,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/07/2017-02-07-install-tmux/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/2017-02-07-install-tmux/" itemprop="commentsCount"></span>
+                <a href="/2017/02/06/2017-02-06-install-tmux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/2017-02-06-install-tmux/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -556,8 +556,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/12/2016-12-11-generating-ipa-from-command-line/" itemprop="url">
-                  命令行打包 IPA
+                <a class="post-title-link" href="/2016/12/13/2016-12-13-resign-ipa/" itemprop="url">
+                  IPA 重签名
                 </a>
               
             
@@ -570,8 +570,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T00:00:00+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2016-12-13T00:00:00+08:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
@@ -612,8 +612,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/12/2016-12-11-generating-ipa-from-command-line/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/2016-12-11-generating-ipa-from-command-line/" itemprop="commentsCount"></span>
+                <a href="/2016/12/13/2016-12-13-resign-ipa/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/2016-12-13-resign-ipa/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -638,13 +638,16 @@
       
         
           
-            <p>涉及两个命令 <code>xcodebuild</code> 和 <code>xcrun</code></p>
-<ul>
-<li>xcodebuild – build Xcode projects and workspaces.</li>
-<li>xcrun - Run or locate development tools and properties.</li>
-</ul>
-<h5 id="一、编译"><a href="#一、编译" class="headerlink" title="一、编译"></a>一、编译</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// build project</div><div class="line">xcodebuild -project Test.xcodeproj -target Test -configuration Release</div><div class="line"></div><div class="line">// build workspace</div><div class="line">xcodebuild -workspace MyWorkspace.xcworkspace -scheme MyScheme build(默认 action，可省略）</div></pre></td></tr></table></figure>
-<h5 id="二、生成-ipa"><a href="#二、生成-ipa" class="headerlink" title="二、生成 ipa"></a>二、生成 ipa</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 注意 PackageApplication(好像新版 xcode 废弃了）</div><div class="line">// http://www.matrixprojects.net/p/xcodebuild-export-options-plist/#tldr</div><div class="line">xcrun -sdk iphoneos -v PackageApplication ./build/Release-iphoneos/xxx.app -o ~/Desktop/xxx.ipa</div></pre></td></tr></table></figure>
+            <h4 id="重签名步骤"><a href="#重签名步骤" class="headerlink" title="重签名步骤"></a>重签名步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 1. 解压</div><div class="line">unzip -q Example.ipa</div><div class="line"></div><div class="line">// 2. 删除旧签名</div><div class="line">rm -rf Payload/Example.app/_CodeSignature</div><div class="line"></div><div class="line">// 3. Info.plist</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Set CFBundleIdentifier $&#123;NEW_BUNDLE_ID&#125;&quot; Playload/Example.app/Info.plist</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Set CFBundleName $&#123;NEW_APP_NAME&#125;&quot; Payload/Example.app/Info.pilst</div><div class="line"></div><div class="line">// 如果需要还需copy 新的 embeded.mobileprovision</div><div class="line">// 4. 强制重签名</div><div class="line">// 因为证书有空格，所以证书那里必须用双引号括起来</div><div class="line">codesign -f -s &quot;$&#123;CERTIFICATE&#125;&quot; --identifier $&#123;NEW_BUNDLE_ID&#125; --entitlements $&#123;ENTITLEMENTS&#125; Playload/Example.app</div><div class="line">// 查看签名是否正确</div><div class="line">codesign -vv -d Payload/Example.app</div><div class="line"></div><div class="line">// 5. 打包 ipa</div><div class="line">zip -qr new.ipa Playload</div><div class="line"></div><div class="line">// 清理</div><div class="line">rm -rf Payload</div></pre></td></tr></table></figure>
+<blockquote>
+<p>entitlements 可以改 entitlements.template</p>
+</blockquote>
+<h4 id="涉及到的命令"><a href="#涉及到的命令" class="headerlink" title="涉及到的命令"></a>涉及到的命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 查看本机证书</div><div class="line">security find-identity -v -p codesigning</div><div class="line"></div><div class="line">// 重签名</div><div class="line">codesign -f -s $&#123;CERTIFICATE_NAME&#125; --identifier $&#123;Bundle_ID&#125; --entitlements Example.entitlements Payload/Example.app</div><div class="line"></div><div class="line">// 查看签名</div><div class="line">codesign -vv -d Example.app</div><div class="line"></div><div class="line">// 验证签名</div><div class="line">codesign --verify Example.ap</div><div class="line"></div><div class="line">// 查看/修改 Plist</div><div class="line">plutil -p Info.plist</div><div class="line">PlistBuddy -c &quot;Set CFBundleIdentifer $&#123;BUNDLE_ID&#125;&quot; Info.plist</div><div class="line"></div><div class="line">// 解压 / 压缩</div><div class="line">unzip -q xxx.app</div><div class="line">zip -qr xxx.ipa Payload</div></pre></td></tr></table></figure>
+<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><p>测试证书</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Certificate: iPhone Developer: h s (5LW76GJTQE)</div><div class="line">APP_ID_PREFIX: Q4JEMYK62P</div></pre></td></tr></table></figure>
+<p>entitlements 模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">	&lt;key&gt;application-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;.$&#123;BUNDLE_ID&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;com.apple.developer.team-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;get-task-allow&lt;/key&gt;</div><div class="line">	&lt;true/&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.vienta.me/2016/02/24/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A1-%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅱ):自动打包</a><br><a href="http://www.vienta.me/2016/02/25/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A2-%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅲ):重新签名和自动部署</a></p>
 
           
         
@@ -694,7 +697,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/12/2017-02-07-shell-read-config-file/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/12/2017-12-12-shell-read-config-file/" itemprop="url">
                   Shell 读取配置文件
                 </a>
               
@@ -750,8 +753,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/12/2017-02-07-shell-read-config-file/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/2017-02-07-shell-read-config-file/" itemprop="commentsCount"></span>
+                <a href="/2016/12/12/2017-12-12-shell-read-config-file/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/2017-12-12-shell-read-config-file/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -833,8 +836,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/12/2016-12-12-resign-ipa/" itemprop="url">
-                  IPA 重签名
+                <a class="post-title-link" href="/2016/12/11/2016-12-11-generating-ipa-from-command-line/" itemprop="url">
+                  命令行打包 IPA
                 </a>
               
             
@@ -847,8 +850,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T00:00:00+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2016-12-11T00:00:00+08:00" content="2016-12-11">
+              2016-12-11
             </time>
           </span>
 
@@ -889,8 +892,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/12/2016-12-12-resign-ipa/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/2016-12-12-resign-ipa/" itemprop="commentsCount"></span>
+                <a href="/2016/12/11/2016-12-11-generating-ipa-from-command-line/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/2016-12-11-generating-ipa-from-command-line/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -915,16 +918,13 @@
       
         
           
-            <h4 id="重签名步骤"><a href="#重签名步骤" class="headerlink" title="重签名步骤"></a>重签名步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 1. 解压</div><div class="line">unzip -q Example.ipa</div><div class="line"></div><div class="line">// 2. 删除旧签名</div><div class="line">rm -rf Payload/Example.app/_CodeSignature</div><div class="line"></div><div class="line">// 3. Info.plist</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Set CFBundleIdentifier $&#123;NEW_BUNDLE_ID&#125;&quot; Playload/Example.app/Info.plist</div><div class="line">/usr/libexec/PlistBuddy -c &quot;Set CFBundleName $&#123;NEW_APP_NAME&#125;&quot; Payload/Example.app/Info.pilst</div><div class="line"></div><div class="line">// 如果需要还需copy 新的 embeded.mobileprovision</div><div class="line">// 4. 强制重签名</div><div class="line">// 因为证书有空格，所以证书那里必须用双引号括起来</div><div class="line">codesign -f -s &quot;$&#123;CERTIFICATE&#125;&quot; --identifier $&#123;NEW_BUNDLE_ID&#125; --entitlements $&#123;ENTITLEMENTS&#125; Playload/Example.app</div><div class="line">// 查看签名是否正确</div><div class="line">codesign -vv -d Payload/Example.app</div><div class="line"></div><div class="line">// 5. 打包 ipa</div><div class="line">zip -qr new.ipa Playload</div><div class="line"></div><div class="line">// 清理</div><div class="line">rm -rf Payload</div></pre></td></tr></table></figure>
-<blockquote>
-<p>entitlements 可以改 entitlements.template</p>
-</blockquote>
-<h4 id="涉及到的命令"><a href="#涉及到的命令" class="headerlink" title="涉及到的命令"></a>涉及到的命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 查看本机证书</div><div class="line">security find-identity -v -p codesigning</div><div class="line"></div><div class="line">// 重签名</div><div class="line">codesign -f -s $&#123;CERTIFICATE_NAME&#125; --identifier $&#123;Bundle_ID&#125; --entitlements Example.entitlements Payload/Example.app</div><div class="line"></div><div class="line">// 查看签名</div><div class="line">codesign -vv -d Example.app</div><div class="line"></div><div class="line">// 验证签名</div><div class="line">codesign --verify Example.ap</div><div class="line"></div><div class="line">// 查看/修改 Plist</div><div class="line">plutil -p Info.plist</div><div class="line">PlistBuddy -c &quot;Set CFBundleIdentifer $&#123;BUNDLE_ID&#125;&quot; Info.plist</div><div class="line"></div><div class="line">// 解压 / 压缩</div><div class="line">unzip -q xxx.app</div><div class="line">zip -qr xxx.ipa Payload</div></pre></td></tr></table></figure>
-<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><p>测试证书</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Certificate: iPhone Developer: h s (5LW76GJTQE)</div><div class="line">APP_ID_PREFIX: Q4JEMYK62P</div></pre></td></tr></table></figure>
-<p>entitlements 模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">	&lt;key&gt;application-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;.$&#123;BUNDLE_ID&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;com.apple.developer.team-identifier&lt;/key&gt;</div><div class="line">	&lt;string&gt;$&#123;APP_ID_PREFIX&#125;&lt;/string&gt;</div><div class="line">	&lt;key&gt;get-task-allow&lt;/key&gt;</div><div class="line">	&lt;true/&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure>
-<p>参考：<br><a href="http://www.vienta.me/2016/02/24/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A1-%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅱ):自动打包</a><br><a href="http://www.vienta.me/2016/02/25/iOS%E6%89%B9%E9%87%8F%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%92%8C%E9%83%A8%E7%BD%B2-%E2%85%A2-%E9%87%8D%E6%96%B0%E7%AD%BE%E5%90%8D%E5%92%8C%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" target="_blank" rel="external">iOS批量自动打包和部署(Ⅲ):重新签名和自动部署</a></p>
+            <p>涉及两个命令 <code>xcodebuild</code> 和 <code>xcrun</code></p>
+<ul>
+<li>xcodebuild – build Xcode projects and workspaces.</li>
+<li>xcrun - Run or locate development tools and properties.</li>
+</ul>
+<h5 id="一、编译"><a href="#一、编译" class="headerlink" title="一、编译"></a>一、编译</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// build project</div><div class="line">xcodebuild -project Test.xcodeproj -target Test -configuration Release</div><div class="line"></div><div class="line">// build workspace</div><div class="line">xcodebuild -workspace MyWorkspace.xcworkspace -scheme MyScheme build(默认 action，可省略）</div></pre></td></tr></table></figure>
+<h5 id="二、生成-ipa"><a href="#二、生成-ipa" class="headerlink" title="二、生成 ipa"></a>二、生成 ipa</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// 注意 PackageApplication(好像新版 xcode 废弃了）</div><div class="line">// http://www.matrixprojects.net/p/xcodebuild-export-options-plist/#tldr</div><div class="line">xcrun -sdk iphoneos -v PackageApplication ./build/Release-iphoneos/xxx.app -o ~/Desktop/xxx.ipa</div></pre></td></tr></table></figure>
 
           
         
