@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,UIWindow," />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -86,16 +86,19 @@
 
 
 
-<meta name="description" content="创建一个Window123456UIWindow *greenWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];greenWindow.windowLevel = UIWindowLevelStatusBar;greenWindow.backgroundColor = [UIColor greenColor">
+<meta name="description" content="由于 bitbucket 网站访问速度太慢，即使连接 vpn 速度也不是很理想，尤其是 pod update 之后，代码可能增加几十M，推拉慢死了。
+一、创建 GIT 服务器123456789// 选择一个目录作为仓库cd ~/Repomkdir project_name.git &amp;amp;&amp;amp; cd project_name.git// 初始化 git 仓库git init --bare/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIWindow介绍">
-<meta property="og:url" content="http://yoursite.com/2015/08/14/2015-08-14-usage-of-uiwindow/index.html">
+<meta property="og:title" content="本地搭建 GIT 服务器">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/2017-02-07-create-local-git-server/index.html">
 <meta property="og:site_name" content="浮生若梦">
-<meta property="og:description" content="创建一个Window123456UIWindow *greenWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];greenWindow.windowLevel = UIWindowLevelStatusBar;greenWindow.backgroundColor = [UIColor greenColor">
-<meta property="og:updated_time" content="2016-08-11T02:23:56.000Z">
+<meta property="og:description" content="由于 bitbucket 网站访问速度太慢，即使连接 vpn 速度也不是很理想，尤其是 pod update 之后，代码可能增加几十M，推拉慢死了。
+一、创建 GIT 服务器123456789// 选择一个目录作为仓库cd ~/Repomkdir project_name.git &amp;amp;&amp;amp; cd project_name.git// 初始化 git 仓库git init --bare/">
+<meta property="og:updated_time" content="2017-02-07T11:25:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIWindow介绍">
-<meta name="twitter:description" content="创建一个Window123456UIWindow *greenWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];greenWindow.windowLevel = UIWindowLevelStatusBar;greenWindow.backgroundColor = [UIColor greenColor">
+<meta name="twitter:title" content="本地搭建 GIT 服务器">
+<meta name="twitter:description" content="由于 bitbucket 网站访问速度太慢，即使连接 vpn 速度也不是很理想，尤其是 pod update 之后，代码可能增加几十M，推拉慢死了。
+一、创建 GIT 服务器123456789// 选择一个目录作为仓库cd ~/Repomkdir project_name.git &amp;amp;&amp;amp; cd project_name.git// 初始化 git 仓库git init --bare/">
 
 
 
@@ -116,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/08/14/2015-08-14-usage-of-uiwindow/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/07/2017-02-07-create-local-git-server/"/>
 
-  <title> UIWindow介绍 | 浮生若梦 </title>
+  <title> 本地搭建 GIT 服务器 | 浮生若梦 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +271,7 @@
             
             
               
-                UIWindow介绍
+                本地搭建 GIT 服务器
               
             
           </h1>
@@ -280,8 +283,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-08-14T14:08:37+08:00" content="2015-08-14">
-              2015-08-14
+            <time itemprop="dateCreated" datetime="2017-02-07T00:00:00+08:00" content="2017-02-07">
+              2017-02-07
             </time>
           </span>
 
@@ -306,8 +309,8 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/开发那些事/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
                   </a>
                 </span>
 
@@ -322,8 +325,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/08/14/2015-08-14-usage-of-uiwindow/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/14/2015-08-14-usage-of-uiwindow/" itemprop="commentsCount"></span>
+                <a href="/2017/02/07/2017-02-07-create-local-git-server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/2017-02-07-create-local-git-server/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -346,12 +349,21 @@
       
 
       
-        <h4 id="创建一个Window"><a href="#创建一个Window" class="headerlink" title="创建一个Window"></a>创建一个Window</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">UIWindow *greenWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">greenWindow.windowLevel = UIWindowLevelStatusBar;</div><div class="line">greenWindow.backgroundColor = [UIColor greenColor];</div><div class="line">greenWindow.alpha = 0.3;</div><div class="line">// default hidden=YES</div><div class="line">greenWindow.hidden = NO;</div></pre></td></tr></table></figure>
+        <p>由于 bitbucket 网站访问速度太慢，即使连接 vpn 速度也不是很理想，尤其是 <code>pod update</code> 之后，代码可能增加几十M，推拉慢死了。</p>
+<h4 id="一、创建-GIT-服务器"><a href="#一、创建-GIT-服务器" class="headerlink" title="一、创建 GIT 服务器"></a>一、创建 GIT 服务器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 选择一个目录作为仓库</div><div class="line">cd ~/Repo</div><div class="line">mkdir project_name.git &amp;&amp; cd project_name.git</div><div class="line">// 初始化 git 仓库</div><div class="line">git init --bare</div><div class="line">// 创建.ssh 目录存放所有要访问的机器的 id_isa.pub</div><div class="line">mkdir .ssh</div><div class="line">// 先把本机的 copy 过来</div><div class="line">cp ~/.ssh/id_isa.pub .ssh</div></pre></td></tr></table></figure>
 <blockquote>
-<p>这样greenWindow就已经放在屏幕上显示了</p>
+<ol>
+<li>测试发现 Repo/project_name.git/.ssh 是没什么用的</li>
+<li>project_name.git 中的 .git 不是必须的</li>
+</ol>
 </blockquote>
-<h4 id="隐藏Window"><a href="#隐藏Window" class="headerlink" title="隐藏Window"></a>隐藏Window</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">greenWindow.hidden = YES;</div><div class="line">greenWindow = nil;</div></pre></td></tr></table></figure>
-<h4 id="给Window添加单击事件"><a href="#给Window添加单击事件" class="headerlink" title="给Window添加单击事件"></a>给Window添加单击事件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:selector(greenWindowTapped:)];</div><div class="line">[greenWindow addGestureRecognizer:tap];</div></pre></td></tr></table></figure>
+<h4 id="二、关联项目"><a href="#二、关联项目" class="headerlink" title="二、关联项目"></a>二、关联项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 进入项目</div><div class="line">cd project_path</div><div class="line">// 因为有 origin 了，所以就叫 local 吧</div><div class="line">git remote add local zhudf@127.0.0.1:/Users/zhudf/Repo/project_name.git</div><div class="line">// 密码就是电脑密码</div><div class="line">git push local master</div></pre></td></tr></table></figure>
+<h4 id="三、ssh-免密码"><a href="#三、ssh-免密码" class="headerlink" title="三、ssh 免密码"></a>三、ssh 免密码</h4><p>服务器 <code>~/.ssh</code> 目录创建 <code>authorized_keys</code> 文件，把各自机器 <code>~/.ssh/id_isa.pub</code> （公钥）追加到 <code>authorized_keys</code> 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 本机免密码</div><div class="line">cat ~/.ssh/id_isa.pub &gt;&gt; authorized_keys</div><div class="line">// 测试</div><div class="line">ssh zhudf@127.0.0.1</div><div class="line"></div><div class="line">// 其他机器免密码</div><div class="line">// 复制各自机器上 ~/.ssh/id_isa.pub 追加到 authorized_keys 文件里</div></pre></td></tr></table></figure>
+<h4 id="四、改善"><a href="#四、改善" class="headerlink" title="四、改善"></a>四、改善</h4><p>为了代码保持同步，现在代码需要 push 两次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push origin</div><div class="line">git push local</div></pre></td></tr></table></figure>
+<p>需要改善的是在 git push local 之后本地仓储自动同步到 bitbucket。</p>
+
       
     </div>
 
@@ -373,9 +385,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
-          
-            <a href="/tags/UIWindow/" rel="tag">#UIWindow</a>
+            <a href="/tags/Git/" rel="tag">#Git</a>
           
         </div>
       
@@ -384,17 +394,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/13/2015-08-13-ios-auto-debug/" rel="next" title="iOS自动化集成测试">
-                <i class="fa fa-chevron-left"></i> iOS自动化集成测试
+              <a href="/2016/08/11/2016-08-11-xcode-slicing/" rel="next" title="Xcode Slicing">
+                <i class="fa fa-chevron-left"></i> Xcode Slicing
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/16/2015-08-16-xcode-code-snippet/" rel="prev" title="Xcode使用-Code Snippet">
-                Xcode使用-Code Snippet <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -420,8 +426,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/08/14/2015-08-14-usage-of-uiwindow/"
-           data-title="UIWindow介绍" data-url="http://yoursite.com/2015/08/14/2015-08-14-usage-of-uiwindow/">
+      <div class="ds-thread" data-thread-key="2017/02/07/2017-02-07-create-local-git-server/"
+           data-title="本地搭建 GIT 服务器" data-url="http://yoursite.com/2017/02/07/2017-02-07-create-local-git-server/">
       </div>
     
   </div>
@@ -557,7 +563,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个Window"><span class="nav-number">1.</span> <span class="nav-text">创建一个Window</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏Window"><span class="nav-number">2.</span> <span class="nav-text">隐藏Window</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给Window添加单击事件"><span class="nav-number">3.</span> <span class="nav-text">给Window添加单击事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、创建-GIT-服务器"><span class="nav-number">1.</span> <span class="nav-text">一、创建 GIT 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、关联项目"><span class="nav-number">2.</span> <span class="nav-text">二、关联项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、ssh-免密码"><span class="nav-number">3.</span> <span class="nav-text">三、ssh 免密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、改善"><span class="nav-number">4.</span> <span class="nav-text">四、改善</span></a></li></ol></div>
             
           </div>
         </section>

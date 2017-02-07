@@ -267,8 +267,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/15/2016-08-15-video-test/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2017/02/07/2017-02-07-create-local-git-server/" itemprop="url">
+                  本地搭建 GIT 服务器
                 </a>
               
             
@@ -281,19 +281,50 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T09:15:57+08:00" content="2016-08-15">
-              2016-08-15
+            <time itemprop="dateCreated" datetime="2017-02-07T00:00:00+08:00" content="2017-02-07">
+              2017-02-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/15/2016-08-15-video-test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/2016-08-15-video-test/" itemprop="commentsCount"></span>
+                <a href="/2017/02/07/2017-02-07-create-local-git-server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/2017-02-07-create-local-git-server/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -318,8 +349,20 @@
       
         
           
-            <p><img src="http://notes.iissnan.com/uploads/group-pics/menu-restaurant-vintage-tab.jpg" alt=""><br><img src="http://notes.iissnan.com/uploads/group-pics/menu-restaurant-vintage-tab.jpg" alt=""><br><img src="http://notes.iissnan.com/uploads/group-pics/menu-restaurant-vintage-tab.jpg" alt=""><br><img src="http://notes.iissnan.com/uploads/group-pics/menu-restaurant-vintage-tab.jpg" alt=""><br><img src="http://notes.iissnan.com/uploads/group-pics/menu-restaurant-vintage-tab.jpg" alt=""><br><img src="http://notes.iissnan.com/uploads/group-pics/menu-restaurant-vintage-tab.jpg" alt=""></p>
-<p><img src="http://notes.iissnan.com/uploads/group-pics/menu-restaurant-vintage-tab.jpg" alt=""></p>
+            <p>由于 bitbucket 网站访问速度太慢，即使连接 vpn 速度也不是很理想，尤其是 <code>pod update</code> 之后，代码可能增加几十M，推拉慢死了。</p>
+<h4 id="一、创建-GIT-服务器"><a href="#一、创建-GIT-服务器" class="headerlink" title="一、创建 GIT 服务器"></a>一、创建 GIT 服务器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 选择一个目录作为仓库</div><div class="line">cd ~/Repo</div><div class="line">mkdir project_name.git &amp;&amp; cd project_name.git</div><div class="line">// 初始化 git 仓库</div><div class="line">git init --bare</div><div class="line">// 创建.ssh 目录存放所有要访问的机器的 id_isa.pub</div><div class="line">mkdir .ssh</div><div class="line">// 先把本机的 copy 过来</div><div class="line">cp ~/.ssh/id_isa.pub .ssh</div></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>测试发现 Repo/project_name.git/.ssh 是没什么用的</li>
+<li>project_name.git 中的 .git 不是必须的</li>
+</ol>
+</blockquote>
+<h4 id="二、关联项目"><a href="#二、关联项目" class="headerlink" title="二、关联项目"></a>二、关联项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 进入项目</div><div class="line">cd project_path</div><div class="line">// 因为有 origin 了，所以就叫 local 吧</div><div class="line">git remote add local zhudf@127.0.0.1:/Users/zhudf/Repo/project_name.git</div><div class="line">// 密码就是电脑密码</div><div class="line">git push local master</div></pre></td></tr></table></figure>
+<h4 id="三、ssh-免密码"><a href="#三、ssh-免密码" class="headerlink" title="三、ssh 免密码"></a>三、ssh 免密码</h4><p>服务器 <code>~/.ssh</code> 目录创建 <code>authorized_keys</code> 文件，把各自机器 <code>~/.ssh/id_isa.pub</code> （公钥）追加到 <code>authorized_keys</code> 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 本机免密码</div><div class="line">cat ~/.ssh/id_isa.pub &gt;&gt; authorized_keys</div><div class="line">// 测试</div><div class="line">ssh zhudf@127.0.0.1</div><div class="line"></div><div class="line">// 其他机器免密码</div><div class="line">// 复制各自机器上 ~/.ssh/id_isa.pub 追加到 authorized_keys 文件里</div></pre></td></tr></table></figure>
+<h4 id="四、改善"><a href="#四、改善" class="headerlink" title="四、改善"></a>四、改善</h4><p>为了代码保持同步，现在代码需要 push 两次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push origin</div><div class="line">git push local</div></pre></td></tr></table></figure>
+<p>需要改善的是在 git push local 之后本地仓储自动同步到 bitbucket。</p>
 
           
         
@@ -1743,7 +1786,7 @@
         <div class="copyright" >
   
   &copy;  2012 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
