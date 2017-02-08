@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Git," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -86,50 +86,16 @@
 
 
 
-<meta name="description" content="首先 git log --pretty=oneline 看下提交历史
-
-修改最近的一次 commit message1git commit --amend -m &amp;apos;3th commit lalala&amp;apos;
-
-
-修改历史的某一次 commit message1git rebase -i 92e38b
-
-
-注意：要修改 6b4fe4 这次提交，就要 rebase 到它的上次一提交 92">
+<meta name="description" content="1. 自定义 NSLog1234567891011121314// 声明void LogD(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);int main(int argc, const char *argv[]) &amp;#123;	LogD(@&amp;quot;Ooops...%d&amp;quot;, 1);&amp;#125;// 定义void LogD(NSStrin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git 修改历史 commit message">
-<meta property="og:url" content="http://yoursite.com/2016/08/10/2016-08-10-git-amend-commit-message/index.html">
+<meta property="og:title" content="iOS 自定义 NSLog 和 可变参数">
+<meta property="og:url" content="http://yoursite.com/2017/02/08/2017-02-08-ios-custom-nslog-and-variable-arguments/index.html">
 <meta property="og:site_name" content="浮生若梦">
-<meta property="og:description" content="首先 git log --pretty=oneline 看下提交历史
-
-修改最近的一次 commit message1git commit --amend -m &amp;apos;3th commit lalala&amp;apos;
-
-
-修改历史的某一次 commit message1git rebase -i 92e38b
-
-
-注意：要修改 6b4fe4 这次提交，就要 rebase 到它的上次一提交 92">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_1.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_2.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_3.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_4.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_5.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_6.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_7.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_8.jpg">
-<meta property="og:image" content="http://yoursite.com/uploads/git_amend_commit_message_9.jpg">
-<meta property="og:updated_time" content="2016-08-11T02:56:22.000Z">
+<meta property="og:description" content="1. 自定义 NSLog1234567891011121314// 声明void LogD(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);int main(int argc, const char *argv[]) &amp;#123;	LogD(@&amp;quot;Ooops...%d&amp;quot;, 1);&amp;#125;// 定义void LogD(NSStrin">
+<meta property="og:updated_time" content="2017-02-08T01:40:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git 修改历史 commit message">
-<meta name="twitter:description" content="首先 git log --pretty=oneline 看下提交历史
-
-修改最近的一次 commit message1git commit --amend -m &amp;apos;3th commit lalala&amp;apos;
-
-
-修改历史的某一次 commit message1git rebase -i 92e38b
-
-
-注意：要修改 6b4fe4 这次提交，就要 rebase 到它的上次一提交 92">
-<meta name="twitter:image" content="http://yoursite.com/uploads/git_amend_commit_message_1.jpg">
+<meta name="twitter:title" content="iOS 自定义 NSLog 和 可变参数">
+<meta name="twitter:description" content="1. 自定义 NSLog1234567891011121314// 声明void LogD(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);int main(int argc, const char *argv[]) &amp;#123;	LogD(@&amp;quot;Ooops...%d&amp;quot;, 1);&amp;#125;// 定义void LogD(NSStrin">
 
 
 
@@ -150,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/10/2016-08-10-git-amend-commit-message/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/08/2017-02-08-ios-custom-nslog-and-variable-arguments/"/>
 
-  <title> Git 修改历史 commit message | 浮生若梦 </title>
+  <title> iOS 自定义 NSLog 和 可变参数 | 浮生若梦 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +268,7 @@
             
             
               
-                Git 修改历史 commit message
+                iOS 自定义 NSLog 和 可变参数
               
             
           </h1>
@@ -314,8 +280,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T11:01:17+08:00" content="2016-08-10">
-              2016-08-10
+            <time itemprop="dateCreated" datetime="2017-02-08T00:00:00+08:00" content="2017-02-08">
+              2017-02-08
             </time>
           </span>
 
@@ -340,8 +306,8 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/开发那些事/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -356,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/10/2016-08-10-git-amend-commit-message/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/10/2016-08-10-git-amend-commit-message/" itemprop="commentsCount"></span>
+                <a href="/2017/02/08/2017-02-08-ios-custom-nslog-and-variable-arguments/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/2017-02-08-ios-custom-nslog-and-variable-arguments/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -380,28 +346,16 @@
       
 
       
-        <p>首先 <code>git log --pretty=oneline</code> 看下提交历史</p>
-<p><img src="/uploads/git_amend_commit_message_1.jpg" alt=""></p>
-<h4 id="修改最近的一次-commit-message"><a href="#修改最近的一次-commit-message" class="headerlink" title="修改最近的一次 commit message"></a>修改最近的一次 commit message</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit --amend -m &apos;3th commit lalala&apos;</div></pre></td></tr></table></figure>
-<p><img src="/uploads/git_amend_commit_message_2.jpg" alt=""></p>
-<p><img src="/uploads/git_amend_commit_message_3.jpg" alt=""></p>
-<h4 id="修改历史的某一次-commit-message"><a href="#修改历史的某一次-commit-message" class="headerlink" title="修改历史的某一次 commit message"></a>修改历史的某一次 commit message</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rebase -i 92e38b</div></pre></td></tr></table></figure>
-<p><img src="/uploads/git_amend_commit_message_4.jpg" alt=""></p>
-<blockquote>
-<p>注意：要修改 <strong>6b4fe4</strong> 这次提交，就要 <code>rebase</code> 到它的上次一提交 <strong>92e38b</strong></p>
-</blockquote>
-<p><img src="/uploads/git_amend_commit_message_5.jpg" alt=""></p>
-<p>要想修改那次提交，就把 <strong>pick</strong> 改成 <strong>edit</strong></p>
-<p><img src="/uploads/git_amend_commit_message_6.jpg" alt=""></p>
-<p><code>:wq</code> 保存退出</p>
-<p><img src="/uploads/git_amend_commit_message_7.jpg" alt=""></p>
-<p>看提示，你可以使用 <code>git commit --amend</code> 来修改这次提交，完事了执行 <code>git rebase --continue</code> 命令。</p>
-<p>照做~</p>
-<p><img src="/uploads/git_amend_commit_message_8.jpg" alt=""></p>
-<p><code>git log --pretty=oneline</code> 查看结果</p>
-<p><img src="/uploads/git_amend_commit_message_9.jpg" alt=""></p>
-<p>Done~</p>
-<p>参考：<a href="http://git.oschina.net/progit/6-Git-%E5%B7%A5%E5%85%B7.html#6.4-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2" target="_blank" rel="external">Git 重写历史</a></p>
+        <h4 id="1-自定义-NSLog"><a href="#1-自定义-NSLog" class="headerlink" title="1. 自定义 NSLog"></a>1. 自定义 NSLog</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 声明</div><div class="line">void LogD(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);</div><div class="line"></div><div class="line">int main(int argc, const char *argv[]) &#123;</div><div class="line">	LogD(@&quot;Ooops...%d&quot;, 1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 定义</div><div class="line">void LogD(NSString *format, ...) &#123;</div><div class="line">	va_list args;</div><div class="line">	va_start(args, format);</div><div class="line">	NSLogv(format, args);</div><div class="line">	va_end(args);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-可变参数"><a href="#2-可变参数" class="headerlink" title="2. 可变参数"></a>2. 可变参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// Objective-C</div><div class="line">- log:(NSString *)format, ... &#123;&#125;</div><div class="line">// C</div><div class="line">void LogV(NSString *format, ...) &#123;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">void LogV(NSString *format, ...) &#123;</div><div class="line">	va_list args;</div><div class="line">	va_start(args, format);</div><div class="line"></div><div class="line">	int arg;</div><div class="line">	// 获取 int 类型参数</div><div class="line">	while ((arg = va_arg(args, int)) &#123;</div><div class="line">		NSLog(@&quot;%d&quot;, arg);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	NSString *s;</div><div class="line">	// 获取 NSString 类型参数</div><div class="line">	while ((s = va_arg(args, NSString *)) &#123;</div><div class="line">		NSLog(@&quot;%@&quot;, s);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	va_end(args);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-NS-FORMAT-FUNCTION-F-A"><a href="#3-NS-FORMAT-FUNCTION-F-A" class="headerlink" title="3. NS_FORMAT_FUNCTION(F,A)"></a>3. <a href="http://stackoverflow.com/questions/16954146/custom-nslog-method-variadic/16954971?noredirect=1#comment71342448_16954971" target="_blank" rel="external"><code>NS_FORMAT_FUNCTION(F,A)</code></a></h4><p>作用是告诉编译器检查格式化参数类型是否正确，例如：<code>LogD(@&quot;Name: %@&quot;, 27)</code> 就会出警告</p>
+<ul>
+<li><strong>F</strong>: Index of format string 格式化字符串的位置</li>
+<li><strong>A</strong>: Index of first argument 格式化参数的起始位置</li>
+</ul>
+<p>Exsample</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">void LogD(NSString *format, ...) NS_FORMAT_FUNCTION(1,2)</div><div class="line">void LogV(BOOL b, NSString *format, ...) NS_FORMAT_FUNCTION(2,3)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -424,7 +378,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag">#Git</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -433,17 +387,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/09/2016-08-09-git-delete-remote-branch/" rel="next" title="Git 删除远程分支">
-                <i class="fa fa-chevron-left"></i> Git 删除远程分支
+              <a href="/2017/02/07/2017-02-07-create-local-git-server/" rel="next" title="本地搭建 GIT 服务器">
+                <i class="fa fa-chevron-left"></i> 本地搭建 GIT 服务器
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/11/2016-08-11-xcode-slicing/" rel="prev" title="Xcode Slicing">
-                Xcode Slicing <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,8 +419,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/10/2016-08-10-git-amend-commit-message/"
-           data-title="Git 修改历史 commit message" data-url="http://yoursite.com/2016/08/10/2016-08-10-git-amend-commit-message/">
+      <div class="ds-thread" data-thread-key="2017/02/08/2017-02-08-ios-custom-nslog-and-variable-arguments/"
+           data-title="iOS 自定义 NSLog 和 可变参数" data-url="http://yoursite.com/2017/02/08/2017-02-08-ios-custom-nslog-and-variable-arguments/">
       </div>
     
   </div>
@@ -606,7 +556,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改最近的一次-commit-message"><span class="nav-number">1.</span> <span class="nav-text">修改最近的一次 commit message</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改历史的某一次-commit-message"><span class="nav-number">2.</span> <span class="nav-text">修改历史的某一次 commit message</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-自定义-NSLog"><span class="nav-number">1.</span> <span class="nav-text">1. 自定义 NSLog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-可变参数"><span class="nav-number">2.</span> <span class="nav-text">2. 可变参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-NS-FORMAT-FUNCTION-F-A"><span class="nav-number">3.</span> <span class="nav-text">3. NS_FORMAT_FUNCTION(F,A)</span></a></li></ol></div>
             
           </div>
         </section>
