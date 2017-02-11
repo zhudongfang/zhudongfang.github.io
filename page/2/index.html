@@ -267,6 +267,154 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/08/2016-08-08-ssh-login-jailbroken-device-issues/" itemprop="url">
+                  SSH 登陆 iOS 设备问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-08T11:46:20+08:00" content="2016-08-08">
+              2016-08-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/iOS-Reverse/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS Reverse</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/08/2016-08-08-ssh-login-jailbroken-device-issues/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/2016-08-08-ssh-login-jailbroken-device-issues/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="一、免密码-SSH-登陆"><a href="#一、免密码-SSH-登陆" class="headerlink" title="一、免密码 SSH 登陆"></a>一、免密码 SSH 登陆</h4><p>每次登陆手机都要输入root密码真的很烦~</p>
+<ol>
+<li>删除 ~/.ssh/known_hosts 中 iOS 设备 IP 对应的条目，完整的一行都删掉</li>
+<li><p>生成 authorized_keys</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div><div class="line">cp ~/.ssh/id_isa.pub ~/authorized_keys</div></pre></td></tr></table></figure>
+</li>
+<li><p>登陆 iOS 设备</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen</div></pre></td></tr></table></figure>
+</li>
+<li><p>登出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp ~/authorized_keys root@192.168.0.104:var/root/.ssh</div><div class="line">rm ~/authorized_keys</div></pre></td></tr></table></figure>
+</li>
+<li><p>Over~</p>
+</li>
+</ol>
+<h4 id="二、重置-SSH-登陆密码"><a href="#二、重置-SSH-登陆密码" class="headerlink" title="二、重置 SSH 登陆密码"></a>二、重置 SSH 登陆密码</h4><p>修改 /private/etc/master.password 文件，文件中会有以下一段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root:xxxxxxxxxxxxx:0:0::0:0:System</div><div class="line">Administrator:/var/root:/bin/sh</div><div class="line">mobile:xxxxxxxxxxxxx:501:501::0:0:Mobile</div><div class="line">User:/var/mobile:/bin/sh</div></pre></td></tr></table></figure></p>
+<p>将root:及mobile:后面的13个x字符处修改成/smx7MYTQIi2M，修改后保存此文件，SSH密码就重新回到默认的 alpine</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/02/2016-08-08-speed-up-xcode-compile/" itemprop="url">
                   加快 Xcode 编译速度
                 </a>
@@ -1452,146 +1600,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/14/2015-05-13-linux-useful-commands/" itemprop="url">
-                  实用的shell命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-14T00:00:00+08:00" content="2015-05-14">
-              2015-05-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
-                    <span itemprop="name">开发那些事</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/Shell/" itemprop="url" rel="index">
-                    <span itemprop="name">Shell</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/14/2015-05-13-linux-useful-commands/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/14/2015-05-13-linux-useful-commands/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用上一个命令的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir a b c </div><div class="line">rmdir !:1 !:2 !:$</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>!:n代表上一个命令的第n个参数<br>!$ 代表上一个命令的最后一个参数<br>Alt+.也可以试试</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1632,7 +1645,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1640,7 +1653,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1649,7 +1662,7 @@
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
