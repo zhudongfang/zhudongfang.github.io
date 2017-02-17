@@ -267,6 +267,144 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/17/2017-02-17-git-amend-commit-batch/" itemprop="url">
+                  Git 批量修改Commit Message
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-17T00:00:00+08:00" content="2017-02-17">
+              2017-02-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
+                    <span itemprop="name">开发那些事</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/开发那些事/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/17/2017-02-17-git-amend-commit-batch/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/2017-02-17-git-amend-commit-batch/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Ruby 脚本使用<code>git rebase</code>命令批量给 Commit Message 加前缀</p>
+<p>原 Commit Log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">c97a228 修改通知设置页问题</div><div class="line">4726e70 关于页面，顶部视图自动调整高度至最佳</div><div class="line">70a4b2c fix关于页面导航栏问题，去除关于、系统通知、推送管理页面Storyboard关联</div><div class="line">0e369b6 关于LesPark页面UI完成</div><div class="line">7186152 更改系统通知界面UI</div><div class="line">5afc075 推送管理页面，当无更多关注时去除底部上拉加载更多动画。</div><div class="line">19c1ecd 更改推送管理页面的样式，修复该页面一些bug</div><div class="line">b5feb88 重写语言设置和公制页</div><div class="line">3f3ca86 Refactor setting cells</div><div class="line">b7e212e 重写设置页、隐私页,统一设置模块cell</div><div class="line">8349479 重写账号绑定页</div><div class="line">7fcacb9 重写账号信息页</div></pre></td></tr></table></figure>
+<p>修改之后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">c97a228 [设置] 修改通知设置页问题</div><div class="line">4726e70 [设置] 关于页面，顶部视图自动调整高度至最佳</div><div class="line">70a4b2c [设置] fix关于页面导航栏问题，去除关于、系统通知、推送管理页面Storyboard关联</div><div class="line">0e369b6 [设置] 关于LesPark页面UI完成</div><div class="line">7186152 [设置] 更改系统通知界面UI</div><div class="line">5afc075 [设置] 推送管理页面，当无更多关注时去除底部上拉加载更多动画。</div><div class="line">19c1ecd [设置] 更改推送管理页面的样式，修复该页面一些bug</div><div class="line">b5feb88 [设置] 重写语言设置和公制页</div><div class="line">3f3ca86 [设置] Refactor setting cells</div><div class="line">b7e212e [设置] 重写设置页、隐私页,统一设置模块cell</div><div class="line">8349479 [设置] 重写账号绑定页</div><div class="line">7fcacb9 [设置] 重写账号信息页</div></pre></td></tr></table></figure>
+<p><code>Ruby</code> 脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env ruby</div><div class="line"></div><div class="line">PROJECT_PATH = &quot;/Users/zhudf/LegendPark/lespark_ios&quot;</div><div class="line">COMMIT_PREFIX = &quot;[设置] &quot;</div><div class="line"></div><div class="line">def construct_commit_msg(orig_msg)</div><div class="line"></div><div class="line">    new_msg &lt;&lt; COMMIT_PREFIX</div><div class="line"></div><div class="line">    int i = 0</div><div class="line">    orig_msg.split.each do |s|</div><div class="line">        if i != 0</div><div class="line">            new_msg &lt;&lt; s</div><div class="line">        end</div><div class="line"></div><div class="line">        i += 1</div><div class="line">    end</div><div class="line"></div><div class="line">    new_msg</div><div class="line">end</div><div class="line"></div><div class="line"></div><div class="line">def batch_amend</div><div class="line"></div><div class="line">    puts &apos;Batch amend commit message :::::::: BEGIN&apos;</div><div class="line"></div><div class="line">    while $? == 0</div><div class="line">        orig_msg = `git log --oneline -1`</div><div class="line">        new_msg  = construct_commit_msg(orig_msg)</div><div class="line"></div><div class="line">        `git commit --amend -q -m #&#123;new_msg&#125;  &amp;&amp; git rebase --continue &gt; /dev/null`</div><div class="line">    end</div><div class="line"></div><div class="line">    puts &apos;Batch amend commit message :::::::: END&apos;</div><div class="line">end</div><div class="line"></div><div class="line"></div><div class="line">batch_amend</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/11/2017-02-11-english-pronounciation/" itemprop="url">
                   English Pronounciation
                 </a>
@@ -1512,152 +1650,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/09/2016-08-09-git-delete-remote-branch/" itemprop="url">
-                  Git 删除远程分支
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-09T18:50:40+08:00" content="2016-08-09">
-              2016-08-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/" itemprop="url" rel="index">
-                    <span itemprop="name">开发那些事</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/开发那些事/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/09/2016-08-09-git-delete-remote-branch/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/09/2016-08-09-git-delete-remote-branch/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>直接上 Command</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :branch_name</div></pre></td></tr></table></figure>
-<p><img src="/uploads/git_delete_remote_branch_1.jpg" alt=""></p>
-<p>然而也有失败的时候~</p>
-<p><img src="/uploads/git_delete_remote_branch_2.jpg" alt=""></p>
-<p>这是为什么呢？</p>
-<p>原来 <code>master</code> 分支是 <strong><code>Default Branch</code></strong>，<code>Default branch</code>是受保护的，改成<code>gh-pages</code>分支</p>
-<p><img src="/uploads/git_delete_remote_branch_3.jpg" alt=""></p>
-<p>再试下</p>
-<p><img src="/uploads/git_delete_remote_branch_4.jpg" alt=""></p>
-<p>Done!</p>
-<blockquote>
-<p>另：删除<strong>远程分支</strong>前并不需要先删除<strong>本地分支</strong>，当前在哪个分支也没有关系。</p>
-</blockquote>
-<p>参考：<a href="http://matthew-brett.github.io/pydagogue/gh_delete_master.html" target="_blank" rel="external">How to delete master branch</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1703,7 +1695,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
